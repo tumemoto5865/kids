@@ -1,0 +1,43 @@
+CREATE TABLE kidcontrol_user.administrator_master_bak
+AS
+SELECT * FROM kidcontrol_user.administrator_master;
+
+CREATE TABLE kidcontrol_user.config_master_bak
+AS
+SELECT * FROM kidcontrol_user.config_master;
+
+CREATE TABLE kidcontrol_user.place_master_bak
+AS
+SELECT * FROM kidcontrol_user.place_master;
+
+CREATE TABLE kidcontrol_user.send_interval_bak
+AS
+SELECT * FROM kidcontrol_user.send_interval;
+
+CREATE TABLE kidcontrol_user.user_info_bak
+AS
+SELECT * FROM kidcontrol_user.user_info;
+
+CREATE TABLE kidcontrol_user.user_location_bak
+AS
+SELECT * FROM kidcontrol_user.user_location;
+
+CREATE TABLE kidcontrol_user.user_master_bak
+AS
+SELECT * FROM kidcontrol_user.user_master;
+
+CREATE TABLE kidcontrol_user.user_notification_bak
+AS
+SELECT * FROM kidcontrol_user.user_notification;
+
+CREATE TABLE kidcontrol_user.user_place_display_bak
+AS
+SELECT * FROM kidcontrol_user.user_place_display;
+
+CREATE TABLE kidcontrol_user.user_place_notification_bak
+AS
+SELECT * FROM kidcontrol_user.user_place_notification;
+
+CREATE TABLE kidcontrol_user.user_record_bak
+AS
+SELECT * FROM kidcontrol_user.user_record;

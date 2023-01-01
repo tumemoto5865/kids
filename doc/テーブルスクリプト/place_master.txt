@@ -1,0 +1,31 @@
+
+CREATE TABLE kidcontrol_user.place_master
+(
+  place_id                      character(13) NOT NULL         , -- 場所ID
+  place_name                    character varying(30)          , -- 場所名称
+  place_type_flg                integer DEFAULT 0              , -- 場所種別フラグ
+  longitude_and_latitude        point                          , -- 経緯度
+  radius                        integer                        , -- 半径
+  icon_id                       character varying(200)         , -- アイコン画像ID
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT place_master_pk PRIMARY KEY (place_id)
+);
+
+COMMENT ON TABLE kidcontrol_user.place_master  IS '場所マスタ';
+
+COMMENT ON COLUMN kidcontrol_user.place_master.place_id                      IS '場所ID';
+COMMENT ON COLUMN kidcontrol_user.place_master.place_name                    IS '場所名称';
+COMMENT ON COLUMN kidcontrol_user.place_master.place_type_flg                IS '場所種別フラグ';
+COMMENT ON COLUMN kidcontrol_user.place_master.longitude_and_latitude        IS '経緯度';
+COMMENT ON COLUMN kidcontrol_user.place_master.radius                        IS '半径';
+COMMENT ON COLUMN kidcontrol_user.place_master.icon_id                       IS 'アイコン画像ID';
+
+COMMENT ON COLUMN kidcontrol_user.place_master.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.place_master.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.place_master.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.place_master.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.place_master.update_date                   IS '更新日時';

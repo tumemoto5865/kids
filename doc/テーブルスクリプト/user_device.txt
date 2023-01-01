@@ -1,0 +1,30 @@
+
+CREATE TABLE kidcontrol_user.user_device
+(
+  user_id                       character varying(30) NOT NULL , -- ユーザID
+  telephone_number              character varying(13)          , -- 電話番号
+  device_id                     character(15)                  , -- 端末ID
+  token_id                      text                           , -- トークンID
+  config_sync_date              timestamp without time zone    , -- 設定情報同期日時
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT user_device_pk PRIMARY KEY (user_id),
+  CONSTRAINT user_device_uk UNIQUE (telephone_number)
+);
+
+COMMENT ON TABLE kidcontrol_user.user_device  IS 'ユーザ端末';
+
+COMMENT ON COLUMN kidcontrol_user.user_device.user_id                       IS 'ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_device.telephone_number              IS '電話番号';
+COMMENT ON COLUMN kidcontrol_user.user_device.device_id                     IS '端末ID';
+COMMENT ON COLUMN kidcontrol_user.user_device.token_id                      IS 'トークンID';
+COMMENT ON COLUMN kidcontrol_user.user_device.config_sync_date              IS '設定情報同期日時';
+
+COMMENT ON COLUMN kidcontrol_user.user_device.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_device.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_device.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.user_device.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_device.update_date                   IS '更新日時';

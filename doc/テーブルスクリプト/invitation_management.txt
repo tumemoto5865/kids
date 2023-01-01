@@ -1,0 +1,33 @@
+
+CREATE TABLE kidcontrol_user.invitation_management
+(
+  invitation_code               character(7) NOT NULL          , -- 招待コード
+  owner_user_id                 character varying(30)          , -- 招待者ユーザID
+  guest_user_id                 character varying(30)          , -- コード適用者ユーザID
+  guest_telephone_number        character varying(13)          , -- コード適用者電話番号
+  auth_level                    integer                        , -- 管理レベル
+  expiration_date               timestamp without time zone    , -- 有効期限日時
+  used_flg                      integer DEFAULT 0              , -- 使用済みフラグ
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT invitation_management_pk PRIMARY KEY (invitation_code)
+);
+
+COMMENT ON TABLE kidcontrol_user.invitation_management  IS '招待管理';
+
+COMMENT ON COLUMN kidcontrol_user.invitation_management.invitation_code               IS '招待コード';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.owner_user_id                 IS '招待者ユーザID';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.guest_user_id                 IS 'コード適用者ユーザID';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.guest_telephone_number        IS 'コード適用者電話番号';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.auth_level                    IS '管理レベル';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.expiration_date               IS '有効期限日時';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.used_flg                      IS '使用済みフラグ';
+
+COMMENT ON COLUMN kidcontrol_user.invitation_management.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.invitation_management.update_date                   IS '更新日時';

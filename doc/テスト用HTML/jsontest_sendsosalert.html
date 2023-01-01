@@ -1,0 +1,60 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+    function sendpost() {
+        var JSONdata = {  // APIに渡すJSONのデータセット:別のAPIをテストする時はここの項目と値を変える
+            userInfo : {
+                userId : "user001",
+                password : "password",
+                userName : "MyName",
+                groupId : "XXX",
+                authLevel : "1"
+            },
+            deviceInfo : {
+                userId : "user001",
+                telephoneNumber  : "09069242656",
+                deviceId: "358969071579019",
+                tokenId : "XXX"
+            },
+            locationRecordInfo : {
+                recordDate : document.form1.recordDate.value,
+                latitude : document.form1.latitude.value,
+                longitude : document.form1.longitude.value,
+                batteryLevel : "80",
+                receptionStatus : "1"
+            }
+        };
+
+        alert(JSON.stringify(JSONdata));
+
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) { // 通信の完了時
+                if (req.status == 200) { // 通信の成功時
+                    alert("success");
+                    document.form1.response.value = req.responseText;
+                }else{
+                    alert("error"+req.status);
+                    document.form1.response.value = req.responseText;
+                }
+            }
+        }
+        req.open('post', 'http://localhost:8080/kdc/api/send/sosalert', true);  // 別のAPIをテストする時はここのアドレスを変える
+        req.setRequestHeader('content-type', 'application/JSON');
+        req.send(JSON.stringify(JSONdata));
+    }
+// -->
+</script>
+
+</head>
+<body>
+<form name="form1" action="#" method="post">
+  <p><input type="text" id="recordDate" name="recordDate" size="30" value="20171101000000">recordDate(YYYYMMDDHHMMSS)</p>
+  <p><input type="text" id="latitude" name="latitude" size="30" value="35.63255">latitude</p>
+  <p><input type="text" id="longitude" name="longitude" size="30" value="139.86258">longitude</p>
+  <p><button id="button" type="button" onclick="sendpost()">submit</button></p>
+  <textarea id="response" name="response" cols=120 rows=10 disabled></textarea>
+</form>
+</body>
+</html>

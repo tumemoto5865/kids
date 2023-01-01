@@ -1,0 +1,61 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+    function sendpost() {
+        var JSONdata = {  // APIに渡すJSONのデータセット:別のAPIをテストする時はここの項目と値を変える
+            userInfo : {
+                userId : "adadad",
+                password : "password",
+                userName : "うめもとてすと",
+                groupId : "XXX",
+                authLevel : "1"
+            },
+            deviceInfo : {
+                userId : "adadad",
+                telephoneNumber  : "09069242656",
+                deviceId: "358969071579019",
+                tokenId : "XXX"
+            },
+            updatedUserInfo : {
+                userId : "adadad",
+                password : "password",
+                userName : "うめもとてすと",
+                iconId : "icon.jpg",
+                groupId : "XXX",
+                authLevel : "1",
+                lineColor : "ff2dff",
+                markerColor : "225"
+            },
+            iconFile : "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"
+        };
+
+        alert(JSON.stringify(JSONdata));
+
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) { // 通信の完了時
+                if (req.status == 200) { // 通信の成功時
+                    alert("success");
+                    document.form1.response.value = req.responseText;
+                }else{
+                    alert("error"+req.status);
+                    document.form1.response.value = req.responseText;
+                }
+            }
+        }
+        req.open('post', 'http://localhost:8080/kdc/api/setting/user', true);  // 別のAPIをテストする時はここのアドレスを変える
+        req.setRequestHeader('content-type', 'application/JSON');
+        req.send(JSON.stringify(JSONdata));
+    }
+// -->
+</script>
+
+</head>
+<body>
+<form name="form1" action="#" method="post">
+  <p><button id="button" type="button" onclick="sendpost()">submit</button></p>
+  <textarea id="response" name="response" cols=120 rows=10 disabled></textarea>
+</form>
+</body>
+</html>

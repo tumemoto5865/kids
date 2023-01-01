@@ -1,0 +1,35 @@
+
+CREATE TABLE kidcontrol_user.config_master
+(
+  config_id                     integer NOT NULL               , -- 設定区分ID
+  config_code                   integer NOT NULL               , -- 設定区分コード
+  config_name                   character varying(30)          , -- 設定区分名称
+  config_param1                 character varying(30)          , -- 設定区分１
+  config_param2                 character varying(30)          , -- 設定区分２
+  config_param3                 character varying(30)          , -- 設定区分３
+  config_param4                 character varying(30)          , -- 設定区分４
+  config_param5                 character varying(30)          , -- 設定区分５
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT config_master_pk PRIMARY KEY (config_id,config_code)
+);
+
+COMMENT ON TABLE kidcontrol_user.config_master  IS '設定区分マスタ';
+
+COMMENT ON COLUMN kidcontrol_user.config_master.config_id                     IS '設定区分ID';
+COMMENT ON COLUMN kidcontrol_user.config_master.config_code                   IS '設定区分コード';
+COMMENT ON COLUMN kidcontrol_user.config_master.config_name                   IS '設定区分名称';
+COMMENT ON COLUMN kidcontrol_user.config_master.config_param1                 IS '設定区分１';
+COMMENT ON COLUMN kidcontrol_user.config_master.config_param2                 IS '設定区分２';
+COMMENT ON COLUMN kidcontrol_user.config_master.config_param3                 IS '設定区分３';
+COMMENT ON COLUMN kidcontrol_user.config_master.config_param4                 IS '設定区分４';
+COMMENT ON COLUMN kidcontrol_user.config_master.config_param5                 IS '設定区分５';
+
+COMMENT ON COLUMN kidcontrol_user.config_master.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.config_master.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.config_master.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.config_master.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.config_master.update_date                   IS '更新日時';

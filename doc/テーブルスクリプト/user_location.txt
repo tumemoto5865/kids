@@ -1,0 +1,33 @@
+
+CREATE TABLE kidcontrol_user.user_location
+(
+  user_id                       character varying(30) NOT NULL , -- ユーザID
+  longitude_and_latitude        point                          , -- 現在経緯度
+  moving_distance               integer                        , -- 移動距離
+  battery_level                 integer                        , -- バッテリー残量
+  reception_status              integer                        , -- 電波状況
+  connection_status             integer                        , -- 接続可否
+  last_location_date            timestamp without time zone    , -- 最新位置情報取得日時
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT user_location_pk PRIMARY KEY (user_id)
+);
+
+COMMENT ON TABLE kidcontrol_user.user_location  IS 'ユーザ位置';
+
+COMMENT ON COLUMN kidcontrol_user.user_location.user_id                       IS 'ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_location.longitude_and_latitude        IS '現在経緯度';
+COMMENT ON COLUMN kidcontrol_user.user_location.moving_distance               IS '移動距離';
+COMMENT ON COLUMN kidcontrol_user.user_location.battery_level                 IS 'バッテリー残量';
+COMMENT ON COLUMN kidcontrol_user.user_location.reception_status              IS '電波状況';
+COMMENT ON COLUMN kidcontrol_user.user_location.connection_status             IS '接続可否';
+COMMENT ON COLUMN kidcontrol_user.user_location.last_location_date            IS '最新位置情報取得日時';
+
+COMMENT ON COLUMN kidcontrol_user.user_location.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_location.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_location.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.user_location.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_location.update_date                   IS '更新日時';

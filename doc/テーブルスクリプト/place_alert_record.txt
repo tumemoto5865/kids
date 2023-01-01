@@ -1,0 +1,27 @@
+
+CREATE TABLE kidcontrol_user.place_alert_record
+(
+  user_id                       character varying(30) NOT NULL , -- ユーザID
+  place_id                      character(13) NOT NULL         , -- 場所ID
+  last_place_in_alert_date      timestamp without time zone    , -- 最終場所進入通知発信日時
+  last_place_out_alert_date     timestamp without time zone    , -- 最終場所退出通知発信日時
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT place_alert_record_pk PRIMARY KEY (user_id,place_id)
+);
+
+COMMENT ON TABLE kidcontrol_user.place_alert_record  IS '場所通知記録';
+
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.user_id                       IS 'ユーザID';
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.place_id                      IS '場所ID';
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.last_place_in_alert_date      IS '最終場所進入通知発信日時';
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.last_place_out_alert_date     IS '最終場所退出通知発信日時';
+
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.place_alert_record.update_date                   IS '更新日時';

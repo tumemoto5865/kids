@@ -1,0 +1,47 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+    function sendpost() {
+        var JSONdata = {  // APIに渡すJSONのデータセット:別のAPIをテストする時はここの項目と値を変える
+            invitationCd: document.form1.invitationCd.value,
+            deviceInfo : {
+                telephoneNumber  : "09069242656",
+                deviceId: "358969071579019",
+                tokenId : "XXX"
+            }
+        };
+
+        alert(JSON.stringify(JSONdata));
+
+        var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) { // 通信の完了時
+                if (req.status == 200) { // 通信の成功時
+                    alert("success");
+                    document.form1.response.value = req.responseText;
+                }else{
+                    alert("error"+req.status);
+                    document.form1.response.value = req.responseText;
+                }
+            }
+        }
+        req.open('post', 'http://localhost:8080/kdc/api/check/invitation', true);  // 別のAPIをテストする時はここのアドレスを変える
+        req.setRequestHeader('content-type', 'application/JSON');
+        req.send(JSON.stringify(JSONdata));
+//        req.send('{ "invitationCd": "1234567" } ');
+    }
+// -->
+</script>
+
+</head>
+<body>
+<p>APIに渡すJSONのデータセット:テストするAPIにあわせて入力項目の数とid,nameを変える。</p>
+<form name="form1" action="#" method="post">
+  <p>招待コード<input type="text" id="invitationCd" name="invitationCd" size="7" value="0000000"></p>
+  <p><button id="button" type="button" onclick="sendpost()">submit</button></p>
+  <textarea id="response" name="response" cols=120 rows=10 disabled></textarea>
+</form>
+</body>
+</html>

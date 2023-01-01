@@ -1,0 +1,25 @@
+
+CREATE TABLE kidcontrol_user.administrator_master
+(
+  administrator_id              character varying(30) NOT NULL , -- 管理者ID
+  administrator_name            character varying(30) NOT NULL , -- 管理者名
+  password                      character varying(30) NOT NULL , -- パスワード
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT administrator_master_pk PRIMARY KEY (administrator_id)
+);
+
+COMMENT ON TABLE kidcontrol_user.administrator_master  IS '管理者マスタ';
+
+COMMENT ON COLUMN kidcontrol_user.administrator_master.administrator_id              IS '管理者ID';
+COMMENT ON COLUMN kidcontrol_user.administrator_master.administrator_name            IS '管理者名';
+COMMENT ON COLUMN kidcontrol_user.administrator_master.password                      IS 'パスワード';
+
+COMMENT ON COLUMN kidcontrol_user.administrator_master.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.administrator_master.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.administrator_master.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.administrator_master.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.administrator_master.update_date                   IS '更新日時';

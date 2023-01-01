@@ -1,0 +1,15 @@
+CREATE TABLE kidcontrol_user.place_master_bak20180301
+AS
+SELECT * FROM kidcontrol_user.place_master;
+
+CREATE TABLE kidcontrol_user.send_interval_config_bak20180301
+AS
+SELECT * FROM kidcontrol_user.send_interval_config;
+
+CREATE TABLE kidcontrol_user.user_alert_config_bak20180301
+AS
+SELECT * FROM kidcontrol_user.user_alert_config;
+
+CREATE TABLE kidcontrol_user.config_master_bak20180301
+AS
+SELECT * FROM kidcontrol_user.config_master;

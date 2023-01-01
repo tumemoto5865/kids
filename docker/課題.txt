@@ -1,0 +1,22 @@
+１．Spring tool suite4のバージョンとJavaのバージョンの組み合わせは注意
+　　今回は
+　　Spring tool suite：4.16.1
+　　Java：17
+　　Spring boot：
+
+１．DBのテーブル作成、データ投入などはDocker起動時の初期設定で実行可能。
+　　drugstoreを参考に追加する。
+
+２．mavenが古いのでGradleに変更する。
+
+
+３．Spring Bootが古い（１．４）ので最新版で新規プロジェクト作成（kdc2）し、移植する。
+　３．１．まずはログイン機能から
+
+
+４．bitbucket内のリポジトリはたくさんあるのでアカウント管理、ソースクローンはしっかり理解する。
+　　ユーザ名：umemoto1979
+　　パスワード：toshi891207
+　　メールアドレス：tumemeoto5865@gmail.com
+　　ソースクローンはSSHで行う。
+

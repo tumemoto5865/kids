@@ -1,0 +1,67 @@
+
+CREATE TABLE kidcontrol_user.user_alert_config
+(
+  group_id                      character varying(30)          , -- グループID
+  auth_level                    integer                        , -- 管理レベル
+  notification_auth_level       integer                        , -- 通知先管理レベル
+  location_display_flg          integer DEFAULT 0              , -- 位置情報表示フラグ
+  moving_distance_display_flg   integer DEFAULT 0              , -- 移動距離表示フラグ
+  battery_level_display_flg     integer DEFAULT 0              , -- バッテリー残量表示フラグ
+  access_time_display_flg       integer DEFAULT 0              , -- アクセス時間表示フラグ
+  reception_status_display_flg  integer DEFAULT 0              , -- 電波状況表示フラグ
+  battery_level_alert_flg       integer DEFAULT 0              , -- バッテリー残量通知フラグ
+  battery_notification          integer                        , -- バッテリー残量通知方法
+  battery_popup                 integer                        , -- バッテリー残量通知ポップアップ
+  battery_alarm_time            integer                        , -- バッテリー残量通知音時間
+  battery_vibration_time        integer                        , -- バッテリー残量通知バイブ時間
+  battery_reference             integer                        , -- バッテリー残量基準値
+  connection_alert_flg          integer DEFAULT 0              , -- 接続切断通知フラグ
+  connection_notification       integer                        , -- 接続切断通知方法
+  connection_popup              integer                        , -- 接続切断通知ポップアップ
+  connection_alarm_time         integer                        , -- 接続切断通知音時間
+  connection_vibration_time     integer                        , -- 接続切断通知バイブ時間
+  sos_alert_flg                 integer DEFAULT 0              , -- SOS通知フラグ
+  sos_notification              integer                        , -- SOS通知方法
+  sos_popup                     integer                        , -- SOS通知ポップアップ
+  sos_alarm_time                integer                        , -- SOS通知音時間
+  sos_vibration_time            integer                        , -- SOS通知バイブ時間
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT user_alert_config_pk PRIMARY KEY (group_id,auth_level,notification_auth_level)
+);
+
+COMMENT ON TABLE kidcontrol_user.user_alert_config  IS 'ユーザ通知設定';
+
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.group_id                      IS 'グループID';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.auth_level                    IS '管理レベル';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.notification_auth_level       IS '通知先管理レベル';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.location_display_flg          IS '位置情報表示フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.moving_distance_display_flg   IS '移動距離表示フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.battery_level_display_flg     IS 'バッテリー残量表示フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.access_time_display_flg       IS 'アクセス時間表示フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.reception_status_display_flg  IS '電波状況表示フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.battery_level_alert_flg       IS 'バッテリー残量通知フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.battery_notification          IS 'バッテリー残量通知方法';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.battery_popup                 IS 'バッテリー残量通知ポップアップ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.battery_alarm_time            IS 'バッテリー残量通知音時間';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.battery_vibration_time        IS 'バッテリー残量通知バイブ時間';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.battery_reference             IS 'バッテリー残量基準値';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.connection_alert_flg          IS '接続切断通知フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.connection_notification       IS '接続切断通知方法';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.connection_popup              IS '接続切断通知ポップアップ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.connection_alarm_time         IS '接続切断通知音時間';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.connection_vibration_time     IS '接続切断通知バイブ時間';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.sos_alert_flg                 IS 'SOS通知フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.sos_notification              IS 'SOS通知方法';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.sos_popup                     IS 'SOS通知ポップアップ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.sos_alarm_time                IS 'SOS通知音時間';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.sos_vibration_time            IS 'SOS通知バイブ時間';
+
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_alert_config.update_date                   IS '更新日時';

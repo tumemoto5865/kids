@@ -1,0 +1,29 @@
+
+CREATE TABLE kidcontrol_user.user_location_record
+(
+  user_id                       character varying(30) NOT NULL , -- ユーザID
+  receive_date                  timestamp without time zone    , -- 取得日時
+  longitude_and_latitude        point                          , -- 経緯度
+  battery_level                 integer                        , -- バッテリー残量
+  reception_status              integer                        , -- 電波状況
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT user_location_record_pk PRIMARY KEY (user_id,receive_date)
+);
+
+COMMENT ON TABLE kidcontrol_user.user_location_record  IS 'ユーザ位置履歴';
+
+COMMENT ON COLUMN kidcontrol_user.user_location_record.user_id                       IS 'ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.receive_date                  IS '取得日時';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.longitude_and_latitude        IS '経緯度';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.battery_level                 IS 'バッテリー残量';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.reception_status              IS '電波状況';
+
+COMMENT ON COLUMN kidcontrol_user.user_location_record.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_location_record.update_date                   IS '更新日時';

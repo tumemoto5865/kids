@@ -1,0 +1,5 @@
+DROP TABLE kidcontrol_user.place_master;
+DROP TABLE kidcontrol_user.send_interval_config;
+DROP TABLE kidcontrol_user.user_alert_config;
+DROP TABLE kidcontrol_user.config_master;
+DROP TABLE kidcontrol_user.place_alert_config;

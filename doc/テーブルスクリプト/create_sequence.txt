@@ -1,0 +1,5 @@
+CREATE SEQUENCE kidcontrol_user.user_id_seq MAXVALUE 999999999999 CYCLE;
+
+CREATE SEQUENCE kidcontrol_user.place_id_seq MAXVALUE 999999999999 CYCLE;
+
+CREATE SEQUENCE kidcontrol_user.config_id_seq MAXVALUE 999999999999 CYCLE;

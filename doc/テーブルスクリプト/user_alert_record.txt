@@ -1,0 +1,29 @@
+
+CREATE TABLE kidcontrol_user.user_alert_record
+(
+  user_id                       character varying(30) NOT NULL , -- ユーザID
+  last_battery_alert_date       timestamp without time zone    , -- 最終バッテリー残量通知発信日時
+  last_disconnection_alert_date timestamp without time zone    , -- 最終接続切断通知発信日時
+  last_reconnection_alert_date  timestamp without time zone    , -- 最終接続回復通知発信日時
+  last_sos_alert_date           timestamp without time zone    , -- 最終SOS発信日時
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT user_alert_record_pk PRIMARY KEY (user_id)
+);
+
+COMMENT ON TABLE kidcontrol_user.user_alert_record  IS 'ユーザ通知記録';
+
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.user_id                       IS 'ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.last_battery_alert_date       IS '最終バッテリー残量通知発信日時';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.last_disconnection_alert_date IS '最終接続切断通知発信日時';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.last_reconnection_alert_date  IS '最終接続回復通知発信日時';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.last_sos_alert_date           IS '最終SOS発信日時';
+
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.user_alert_record.update_date                   IS '更新日時';

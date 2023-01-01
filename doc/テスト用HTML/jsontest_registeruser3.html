@@ -1,0 +1,54 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+    function sendpost() {
+        var JSONdata = {  // APIに渡すJSONのデータセット:別のAPIをテストする時はここの項目と値を変える
+            userId : document.form1.userId.value,
+            password : document.form1.password.value,
+            userName : document.form1.userName.value,
+            invitationCd : document.form1.invitationCd.value,
+            mode : 3,
+            deviceInfo : {
+                userId : "",
+                telephoneNumber  : "09091487651",
+                deviceId: "358420071557506",
+                tokenId : "XXX"
+            }
+        };
+
+        alert(JSON.stringify(JSONdata));
+
+        var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) { // 通信の完了時
+                if (req.status == 200) { // 通信の成功時
+                    alert("success");
+                    document.form1.response.value = req.responseText;
+                }else{
+                    alert("error"+req.status);
+                    document.form1.response.value = req.responseText;
+                }
+            }
+        }
+        req.open('post', 'http://localhost:8080/kdc/api/register/user', true);  // 別のAPIをテストする時はここのアドレスを変える
+        req.setRequestHeader('content-type', 'application/JSON');
+        req.send(JSON.stringify(JSONdata));
+    }
+// -->
+</script>
+
+</head>
+<body>
+<p>APIに渡すJSONのデータセット:テストするAPIにあわせて入力項目の数とid,nameを変える。</p>
+<form name="form1" action="#" method="post">
+  <p><input type="text" id="userId" name="userId" size="30" value="android2">userId</p>
+  <p><input type="text" id="password" name="password" size="30" value="android2">password</p>
+  <p><input type="text" id="userName" name="userName" size="30" value="android2">userName</p>
+  <p><input type="text" id="invitationCd" name="invitationCd" size="30" value="">invitationCd</p>
+  <p><button id="button" type="button" onclick="sendpost()">submit</button></p>
+  <textarea id="response" name="response" cols=120 rows=10 disabled></textarea>
+</form>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+    function sendpost() {
+        var JSONdata = {  // APIに渡すJSONのデータセット:別のAPIをテストする時はここの項目と値を変える
+            userInfo : {
+                userId : "administrator",
+                password : "fs1123",
+                groupId : "1",
+                authLevel : "4",
+            },
+            deviceInfo : {
+                userId : "administrator",
+                telephoneNumber  : "358969071579019",
+                deviceId: "358969071579019"
+            },
+            mode : document.form1.mode.value,
+            placeInfo : {
+                placeId : document.form1.placeId.value,
+                placeName : document.form1.placeName.value,
+                placeTypeCd : document.form1.placeTypeCd.value,
+                latitude : document.form1.latitude.value,
+                longitude : document.form1.longitude.value,
+                radius : document.form1.radius.value,
+                iconId : document.form1.iconId.value,
+                dispFlg : null
+            }
+        };
+
+        alert(JSON.stringify(JSONdata));
+
+        var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) { // 通信の完了時
+                if (req.status == 200) { // 通信の成功時
+                    alert("success");
+                    document.form1.response.value = req.responseText;
+                }else{
+                    alert("error"+req.status);
+                    document.form1.response.value = req.responseText;
+                }
+            }
+        }
+        req.open('post', 'http://localhost:8080/kdc/api/register/place', true);  // 別のAPIをテストする時はここのアドレスを変える
+        req.setRequestHeader('content-type', 'application/JSON');
+        req.send(JSON.stringify(JSONdata));
+    }
+// -->
+</script>
+
+</head>
+<body>
+<p>APIに渡すJSONのデータセット:テストするAPIにあわせて入力項目の数とid,nameを変える。</p>
+<form name="form1" action="#" method="post">
+  <p><input type="text" id="mode" name="mode" size="30" value="1">mode(1=新規 2=更新 3=削除)</p>
+  <p><input type="text" id="placeId" name="placeId" size="30" value="P000000000001">placeId(新規は0)</p>
+  <p><input type="text" id="placeName" name="placeName" size="30" value="場所名">placeName</p>
+  <p><input type="text" id="placeTypeCd" name="placeTypeCd" size="30" value="1">placeTypeCd(1=通常 2=危険)</p>
+  <p><input type="text" id="latitude" name="latitude" size="30" value="35.63255">latitude</p>
+  <p><input type="text" id="longitude" name="longitude" size="30" value="139.86258">longitude</p>
+  <p><input type="text" id="radius" name="radius" size="30" value="300">radius</p>
+  <p><input type="text" id="iconId" name="iconId" size="30" value="1">iconId</p>
+  <p><button id="button" type="button" onclick="sendpost()">submit</button></p>
+  <textarea id="response" name="response" cols=120 rows=10 disabled></textarea>
+</form>
+</body>
+</html>

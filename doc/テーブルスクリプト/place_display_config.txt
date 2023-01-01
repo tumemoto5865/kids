@@ -1,0 +1,25 @@
+
+CREATE TABLE kidcontrol_user.place_display_config
+(
+  auth_level                    integer                        , -- 管理レベル
+  place_id                      character(13) NOT NULL         , -- 場所ID
+  place_disp_flg                integer DEFAULT 0              , -- 場所表示フラグ
+  del_flg                       integer DEFAULT 0              , -- 削除フラグ
+  register_user_id              character varying(30)          , -- 登録ユーザID
+  register_date                 timestamp without time zone    , -- 登録日時
+  update_user_id                character varying(30)          , -- 更新ユーザID
+  update_date                   timestamp without time zone    , -- 更新日時
+  CONSTRAINT place_display_config_pk PRIMARY KEY (auth_level,place_id)
+);
+
+COMMENT ON TABLE kidcontrol_user.place_display_config  IS '場所表示設定';
+
+COMMENT ON COLUMN kidcontrol_user.place_display_config.auth_level                    IS '管理レベル';
+COMMENT ON COLUMN kidcontrol_user.place_display_config.place_id                      IS '場所ID';
+COMMENT ON COLUMN kidcontrol_user.place_display_config.place_disp_flg                IS '場所表示フラグ';
+
+COMMENT ON COLUMN kidcontrol_user.place_display_config.del_flg                       IS '削除フラグ';
+COMMENT ON COLUMN kidcontrol_user.place_display_config.register_user_id              IS '登録ユーザID';
+COMMENT ON COLUMN kidcontrol_user.place_display_config.register_date                 IS '登録日時';
+COMMENT ON COLUMN kidcontrol_user.place_display_config.update_user_id                IS '更新ユーザID';
+COMMENT ON COLUMN kidcontrol_user.place_display_config.update_date                   IS '更新日時';
