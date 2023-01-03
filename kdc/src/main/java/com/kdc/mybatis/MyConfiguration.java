@@ -53,9 +53,9 @@ public class MyConfiguration {
         ResourcePatternResolver resolver = ResourcePatternUtils.getResourcePatternResolver(
                 new DefaultResourceLoader());
 
-        // MyBatis のコンフィグレーションファイル
+        // MyBatis 縺ｮ繧ｳ繝ｳ繝輔ぅ繧ｰ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ繝輔ぃ繧､繝ｫ
         bean.setConfigLocation(resolver.getResource("classpath:mybatis/mybatis.xml"));
-        // MyBatis で使用する SQL ファイル群
+        // MyBatis 縺ｧ菴ｿ逕ｨ縺吶ｋ SQL 繝輔ぃ繧､繝ｫ鄒､
         bean.setMapperLocations(resolver.getResources("classpath:mybatis/sql/*/**/*.xml"));
 
         return new SqlSessionTemplate(bean.getObject());

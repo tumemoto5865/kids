@@ -14,7 +14,7 @@ public class UserInfoEntity extends UserInfoCoreEntity {
 		return userName;
 	}
 	/**
-	 * @param userName ƒZƒbƒg‚·‚é userName
+	 * @param userName ã‚»ãƒƒãƒˆã™ã‚‹ userName
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -26,7 +26,7 @@ public class UserInfoEntity extends UserInfoCoreEntity {
 		return iconId;
 	}
 	/**
-	 * @param iconId ƒZƒbƒg‚·‚é iconId
+	 * @param iconId ã‚»ãƒƒãƒˆã™ã‚‹ iconId
 	 */
 	public void setIconId(String iconId) {
 		this.iconId = iconId;
@@ -38,7 +38,7 @@ public class UserInfoEntity extends UserInfoCoreEntity {
 		return lineColor;
 	}
 	/**
-	 * @param lineColor ƒZƒbƒg‚·‚é lineColor
+	 * @param lineColor ã‚»ãƒƒãƒˆã™ã‚‹ lineColor
 	 */
 	public void setLineColor(String lineColor) {
 		this.lineColor = lineColor;
@@ -50,7 +50,7 @@ public class UserInfoEntity extends UserInfoCoreEntity {
 		return markerColor;
 	}
 	/**
-	 * @param markerColor ƒZƒbƒg‚·‚é markerColor
+	 * @param markerColor ã‚»ãƒƒãƒˆã™ã‚‹ markerColor
 	 */
 	public void setMarkerColor(String markerColor) {
 		this.markerColor = markerColor;

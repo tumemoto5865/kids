@@ -1,273 +1,273 @@
 package com.kdc.common.util;
 
 /**
- * ���ʒ萔�N���X.
+ * 共通定数クラス.
  */
 public class CommonConst {
 
-	/** �L�b�Y�R���g���[���V�X�e���^�C�g�� */
+	/** キッズコントロールシステムタイトル */
 	public static final String KDC_SYSTEM_TITLE = "kidcontrol";
-	/** �L�b�Y�R���g���[���V�X�e���\���� */
-	public static final String KDC_SYSTEM_DISP_NAME = "�L�b�Y�R���g���[��";
+	/** キッズコントロールシステム表示名 */
+	public static final String KDC_SYSTEM_DISP_NAME = "キッズコントロール";
 
-	/** �A�N�Z�X�|�C���gURL���ʕ�:API */
+	/** アクセスポイントURL共通部:API */
 	public static final String API_BASE_URL = "/api";
-	/** �A�N�Z�X�|�C���gURL���ʕ�:�T�[�o */
+	/** アクセスポイントURL共通部:サーバ */
 	public static final String WEB_BASE_URL = "/web";
 
-	/** �V�X�e�����W���[���t�@�C���i�[�f�B���N�g���p�X */
-	// TODO:�{�Ԋ��ɍ��킹�ĕύX
+	/** システムモジュールファイル格納ディレクトリパス */
+	// TODO:本番環境に合わせて変更
 	public static final String SYSTEM_MODULE_PATH = "C:/Shared01/kidcontrol/module/";
 	//public static final String SYSTEM_MODULE_PATH = "/Shared01/kidcontrol/module/";
 
-	/** �V�X�e���ݒ�t�@�C���� */
+	/** システム設定ファイル名 */
 	public static final String SYSTEM_INI_FILE_NAME = "kidcontrol.ini";
 
-	/** �A�v���C���X�g�[���p�b�P�[�W�iAPK�j�t�@�C���� */
+	/** アプリインストールパッケージ（APK）ファイル名 */
 	public static final String APK_FILE_NAME = "kidcontrol.apk";
 
-	/** ���[�U�f�t�H���g�A�C�R���摜�i�[�f�B���N�g�� */
+	/** ユーザデフォルトアイコン画像格納ディレクトリ */
 	public static final String USER_ICON_DIR = "icon/user/";
-	/** �ꏊ�A�C�R���摜�i�[�f�B���N�g�� */
+	/** 場所アイコン画像格納ディレクトリ */
 	public static final String PLACE_ICON_DIR = "icon/place/";
-	/** �}�[�J�[�A�C�R���摜�i�[�f�B���N�g�� */
+	/** マーカーアイコン画像格納ディレクトリ */
 	public static final String MARKER_ICON_DIR = "icon/marker/";
-	/** �A�C�R���摜�\���p�iBase64�j */
+	/** アイコン画像表示用（Base64） */
 	public static final String ICON_IMG_HEADER = "data:image/png;base64,";
-	/** �A�C�R���摜�̕� */
+	/** アイコン画像の幅 */
 	public static final int ICON_WIDTH = 40;
-	/** �A�C�R���摜�̍��� */
+	/** アイコン画像の高さ */
 	public static final int ICON_HEIGHT = 40;
 
-	/** ���ʃR�[�h:���폈�� */
+	/** 結果コード:正常処理 */
 	public static final Integer RESULT_CD_SUCCESS = 0;
-	/** ���ʃR�[�h:�������s */
+	/** 結果コード:処理失敗 */
 	public static final Integer RESULT_CD_FAILED = 1;
 
-	/** ID�w�b�_����:�ꏊID */
+	/** IDヘッダ文字:場所ID */
 	public static final String ID_HEADER_PLACE = "P";
-	/** ID�w�b�_����:�ݒ�ID */
+	/** IDヘッダ文字:設定ID */
 	public static final String ID_HEADER_CONFIG = "C";
 
-	/** �t���O����:ON */
+	/** フラグ項目:ON */
 	public static final Integer FLG_ON = 1;
-	/** �t���O����:OFF */
+	/** フラグ項目:OFF */
 	public static final Integer FLG_OFF = 0;
-	/** �O���[�vID(�����l�F�P�j */
+	/** グループID(初期値：１） */
 	public static final String GROUP_ID_1 = "1";
 
-	/*-------- �񋓒l --------*/
-	/** API����ID:���O�C�� */
+	/*-------- 列挙値 --------*/
+	/** API識別ID:ログイン */
 	public static final int API_ID_LOGIN = 1;
-	/** API����ID:���[�U�o�^ */
+	/** API識別ID:ユーザ登録 */
 	public static final int API_ID_REGISTER_USER = 2;
-	/** API����ID:�ʒu��񑗐M */
+	/** API識別ID:位置情報送信 */
 	public static final int API_ID_SEND_LOCATION = 3;
-	/** API����ID:���[�U�ʒu���擾 */
+	/** API識別ID:ユーザ位置情報取得 */
 	public static final int API_ID_GET_LOCATIONS = 4;
-	/** API����ID:�ꏊ���擾 */
+	/** API識別ID:場所情報取得 */
 	public static final int API_ID_GET_PLACES = 5;
-	/** API����ID:���[�U�������擾 */
+	/** API識別ID:ユーザ履歴情報取得 */
 	public static final int API_ID_GET_RECORDS = 6;
-	/** API����ID:�ݒ�擾 */
+	/** API識別ID:設定取得 */
 	public static final int API_ID_GET_CONFIG = 7;
-	/** API����ID:SOS���M */
+	/** API識別ID:SOS発信 */
 	public static final int API_ID_SEND_SOS_ALERT = 8;
-	/** API����ID:�ꏊ�o�^ */
+	/** API識別ID:場所登録 */
 	public static final int API_ID_REGISTER_PLACE = 9;
-	/** API����ID:���[�U���ύX */
+	/** API識別ID:ユーザ情報変更 */
 	public static final int API_ID_SETTING_USER = 10;
-	/** API����ID:�A�C�R���摜�_�E�����[�h */
+	/** API識別ID:アイコン画像ダウンロード */
 	public static final int API_ID_DL_USERICON = 11;
-	/** API����ID:���҃R�[�h���s */
+	/** API識別ID:招待コード発行 */
 	public static final int API_ID_GET_INVITATION = 12;
-	/** API����ID:���҃R�[�h�F�� */
+	/** API識別ID:招待コード認証 */
 	public static final int API_ID_CHECK_INVITATION = 13;
-	/** API����ID:APK�_�E�����[�h */
+	/** API識別ID:APKダウンロード */
 	public static final int API_ID_DL_APK = 14;
-	/** API����ID:���O�A�E�g */
+	/** API識別ID:ログアウト */
 	public static final int API_ID_LOGOUT = 15;
-	/** API����ID:�O���[�v���擾 */
+	/** API識別ID:グループ情報取得 */
 	public static final int API_ID_GET_GROUPS = 16;
-	/** API����ID:�O���[�v�o�^ */
+	/** API識別ID:グループ登録 */
 	public static final int API_ID_REGISTER_GROUP = 17;
-	/** API����ID:�ʒm���o�^�@*/
+	/** API識別ID:通知情報登録　*/
 	public static final int API_ID_REGISTER_NOTIFICATION = 18;
-	/** API����ID:�ʒm���擾�@*/
+	/** API識別ID:通知情報取得　*/
 	public static final int API_ID_GET_NOTIFICATIONS = 19;	
-	/** API����ID:�`�F�b�N���[�U */
+	/** API識別ID:チェックユーザ */
 	public static final int API_ID_CHECK_USER = 20;
-	/** API����ID:�i�Ǘ��җp�@�\�j�S���[�U���擾 */
+	/** API識別ID:（管理者用機能）全ユーザ情報取得 */
 	public static final int API_ID_ADMIN_GET_ALLUSER = 101;
-	/** API����ID:�i�Ǘ��җp�@�\�j�����[�U���ύX */
+	/** API識別ID:（管理者用機能）他ユーザ情報変更 */
 	public static final int API_ID_ADMIN_SETTING_USER = 102;
-	/** API����ID:�i�Ǘ��җp�@�\�j���[�U�폜 */
+	/** API識別ID:（管理者用機能）ユーザ削除 */
 	public static final int API_ID_ADMIN_DELUSER = 103;
-	/** API����ID:�T�[�o�����iAPI�ȊO��Push�ʒm��Ԃ�����ԍ��j */
+	/** API識別ID:サーバ処理（API以外でPush通知を返す特殊番号） */
 	public static final int API_ID_SERVER_PROCESS = 999;
 
-	/** �Ǘ����x��:�Q�X�g */
+	/** 管理レベル:ゲスト */
 	public static final int AUTH_LEVEL_GUEST = 1;
-	/** �Ǘ����x��:�q�� */
+	/** 管理レベル:子供 */
 	public static final int AUTH_LEVEL_CHILD = 2;
-	/** �Ǘ����x��:��l */
+	/** 管理レベル:大人 */
 	public static final int AUTH_LEVEL_ADULT = 3;
-	/** �Ǘ����x��:�Ǘ��� */
+	/** 管理レベル:管理者 */
 	public static final int AUTH_LEVEL_ADMIN = 4;
 
-	/** Push�ʒm���:���[�U�A�C�R�� */
+	/** Push通知種別:ユーザアイコン */
 	public static final int PUSH_NOFITICATION_USERICON = 1;
-	/** Push�ʒm���:SOS */
+	/** Push通知種別:SOS */
 	public static final int PUSH_NOFITICATION_SOS = 2;
-	/** Push�ʒm���:�o�b�e���[ */
+	/** Push通知種別:バッテリー */
 	public static final int PUSH_NOFITICATION_BATTERY = 3;
-	/** Push�ʒm���:�ڑ��ؒf */
+	/** Push通知種別:接続切断 */
 	public static final int PUSH_NOFITICATION_DISCONNECT = 4;
-	/** Push�ʒm���:�ڑ��� */
+	/** Push通知種別:接続回復 */
 	public static final int PUSH_NOFITICATION_RECONNECT = 5;
-	/** Push�ʒm���:�ꏊ�i���i�ʏ�ꏊ�j */
+	/** Push通知種別:場所進入（通常場所） */
 	public static final int PUSH_NOFITICATION_PLACE_NORMAL_IN = 6;
-	/** Push�ʒm���:�ꏊ�i���i�댯�ȏꏊ�j */
+	/** Push通知種別:場所進入（危険な場所） */
 	public static final int PUSH_NOFITICATION_PLACE_DANGER_IN = 7;
-	/** Push�ʒm���:�ꏊ�ޏo�i�ʏ�ꏊ�j */
+	/** Push通知種別:場所退出（通常場所） */
 	public static final int PUSH_NOFITICATION_PLACE_NORMAL_OUT = 8;
-	/** Push�ʒm���:�ꏊ�ޏo�i�댯�ȏꏊ�j */
+	/** Push通知種別:場所退出（危険な場所） */
 	public static final int PUSH_NOFITICATION_PLACE_DANGER_OUT = 9;
-	/** Push�ʒm���:�ݒ�ύX�i�T�[�o�����j */
+	/** Push通知種別:設定変更（サーバ処理） */
 	public static final int PUSH_NOFITICATION_CHANGE_CONFIG = 10;
 
-	/** �ʒm�^�C�v:���̂� */
+	/** 通知タイプ:音のみ */
 	public static final int NOTIFICATION_TYPE_SOUND_ONLY = 0;
-	/** �ʒm�^�C�v:�o�C�u�̂� */
+	/** 通知タイプ:バイブのみ */
 	public static final int NOTIFICATION_TYPE_VIBRATION_ONLY = 1;
-	/** �ʒm�^�C�v:���{�o�C�u */
+	/** 通知タイプ:音＋バイブ */
 	public static final int NOTIFICATION_TYPE_SOUND_AND_VIBRATION = 2;
 
-	/** �d�g��:Wi-Fi */
+	/** 電波状況:Wi-Fi */
 	public static final int RECEPTION_STATUS_WIFI = 1;
-	/** �d�g��:LTE */
+	/** 電波状況:LTE */
 	public static final int RECEPTION_STATUS_LTE = 2;
-	/** �d�g��:4G */
+	/** 電波状況:4G */
 	public static final int RECEPTION_STATUS_4G = 3;
-	/** �d�g��:3G */
+	/** 電波状況:3G */
 	public static final int RECEPTION_STATUS_3G = 4;
-	/** �d�g��:5G */
+	/** 電波状況:5G */
 	public static final int RECEPTION_STATUS_5G = 5;
-	/** �d�g��:WiMAX */
+	/** 電波状況:WiMAX */
 	public static final int RECEPTION_STATUS_WIMAX = 6;
 
-	/** �ڑ���:�ؒf */
+	/** 接続可否:切断 */
 	public static final int CONNECTION_STATUS_DISCONNECT = 0;
-	/** �ڑ���:�ڑ� */
+	/** 接続可否:接続 */
 	public static final int CONNECTION_STATUS_CONNECT = 1;
 
-	/** �ꏊ�o�^���[�h:�o�^ */
+	/** 場所登録モード:登録 */
 	public static final int REGISTER_PLACE_MODE_INSERT = 1;
-	/** �ꏊ�o�^���[�h:�ύX */
+	/** 場所登録モード:変更 */
 	public static final int REGISTER_PLACE_MODE_UPDATE = 2;
-	/** �ꏊ�o�^���[�h:�폜 */
+	/** 場所登録モード:削除 */
 	public static final int REGISTER_PLACE_MODE_DELETE = 3;
 
-	/** �ꏊ���:�ʏ�ꏊ */
+	/** 場所種別:通常場所 */
 	public static final int PLACE_TYPE_NORMAL = 0;
-	/** �ꏊ���:�댯�ȏꏊ */
+	/** 場所種別:危険な場所 */
 	public static final int PLACE_TYPE_DANGER = 1;
 
-	/** �F�؃��[�h:���O�C�� */
+	/** 認証モード:ログイン */
 	public static final int AUTHENTICATION_MODE_LOGIN = 1;
-	/** �F�؃��[�h:���[�U�o�^ */
+	/** 認証モード:ユーザ登録 */
 	public static final int AUTHENTICATION_MODE_REGISTER_USER = 2;
-	/** �F�؃��[�h:�V�K�O���[�v�쐬 */
+	/** 認証モード:新規グループ作成 */
 	public static final int AUTHENTICATION_MODE_NEW_GROUP = 3;
-	/** �F�؁@���҃R�[�h�F1111111�i���[�U�[�����݂��Ȃ��ꍇ�ɃX���[������j **/
+	/** 認証　招待コード：1111111（ユーザーが存在しない場合にスルーさせる） **/
 	public static final String INVITATION_CD = "1111111";
 
-	/** �O���[�v�o�^���[�h:�o�^ */
+	/** グループ登録モード:登録 */
 	public static final int REGISTER_GROUP_MODE_INSERT = 1;
-	/** �O���[�v�o�^���[�h:�ύX */
+	/** グループ登録モード:変更 */
 	public static final int REGISTER_GROUP_MODE_UPDATE = 2;
-	/** �O���[�v�o�^���[�h:�폜 */
+	/** グループ登録モード:削除 */
 	public static final int REGISTER_GROUP_MODE_DELETE = 3;
 	
-	/** �ʒm���o�^���[�h:�o�^ */
+	/** 通知情報登録モード:登録 */
 	public static final int REGISTER_NOTIFICATION_MODE_INSERT = 1;
-	/** �O���[�v�o�^���[�h:�ύX */
+	/** グループ登録モード:変更 */
 	public static final int REGISTER_NOTIFICATION_MODE_UPDATE = 2;
-	/** �O���[�v�o�^���[�h:�폜 */
+	/** グループ登録モード:削除 */
 	public static final int REGISTER_NOTIFICATION_MODE_DELETE = 3;
 
-	/*-------- �ݒ�敪 --------*/
-	/** �ݒ�敪ID:�����p�X���[�h */
+	/*-------- 設定区分 --------*/
+	/** 設定区分ID:初期パスワード */
 	public static final int CONFIG_ID_INIT_PASSWORD = 0;
-	/** �ݒ�敪ID:SOS�J�E���g�_�E���b�� */
+	/** 設定区分ID:SOSカウントダウン秒数 */
 	public static final int CONFIG_ID_SOS_COUNTDOWN = 1;
-	/** �ݒ�敪ID:�[���ؒf���ԁi���j */
+	/** 設定区分ID:端末切断時間（分） */
 	public static final int CONFIG_ID_DISCONNECT_TIME = 2;
-	/** �ݒ�敪ID:�o�[�W������� */
+	/** 設定区分ID:バージョン情報 */
 	public static final int CONFIG_ID_VERSION_NO = 3;
-	/** �ݒ�敪ID:Push�ʒm�đ��M�ҋ@���ԁi���j */
+	/** 設定区分ID:Push通知再送信待機時間（分） */
 	public static final int CONFIG_ID_PUSH_NOTIFICATION_INTERVAL_TIME = 4;
-	/** �ݒ�敪ID:���҃R�[�h�L�����ԁi���j */
+	/** 設定区分ID:招待コード有効期間（分） */
 	public static final int CONFIG_ID_INVITATION_CODE_EXPIRATION_TIME = 5;
 
-	/*-------- �f�t�H���g�l --------*/
-	// /** �f�t�H���g�l:�O���[�vID */
+	/*-------- デフォルト値 --------*/
+	// /** デフォルト値:グループID */
 	// public static final String DEFAULT_GROUP_ID = "1";
 
-	/** �f�t�H���g�l:�ʒm������ */
+	/** デフォルト値:通知音時間 */
 	public static final Integer DEFAULT_NOTIFICATION_TIME_SOUND = 3;
-	/** �f�t�H���g�l:�ʒm�o�C�u���� */
+	/** デフォルト値:通知バイブ時間 */
 	public static final Integer DEFAULT_NOTIFICATION_TIME_VIBRATION = 3;
-	/** �f�t�H���g�l:�o�b�e���[�ʒm��l */
+	/** デフォルト値:バッテリー通知基準値 */
 	public static final Integer DEFAULT_NOTIFICATION_BATTERY = 30;
 
-	/** �f�t�H���g�l:GoogleMap�����\�����W */
+	/** デフォルト値:GoogleMap初期表示座標 */
 	public static final String DEFAULT_MAP_LATITUDE = "35.632899";
 	public static final String DEFAULT_MAP_LONGITUDE = "139.880458";
 	public static final String DEFAULT_MAP_ZOOM = "15";
 
-	/** �f�t�H���g�l:GoogleMap��ɔz�u����ꏊ�̉~�̔��a */
+	/** デフォルト値:GoogleMap上に配置する場所の円の半径 */
 	public static final Integer DEFAULT_PLACE_RADIUS = 10;
 	public static final Integer PLACE_RADIUS_MIN = 10;
 	public static final Integer PLACE_RADIUS_MAX = 1000;
 
-	/*-------- ���̑��萔�l --------*/
-	/** ���҃R�[�h�̌��� */
+	/*-------- その他定数値 --------*/
+	/** 招待コードの桁数 */
 	public static final int INVITATION_CODE_LENGTH = 7;
-	/** ���[�UID�̍ő啶���� */
+	/** ユーザIDの最大文字数 */
 	public static final int USER_ID_MAX_LENGTH = 15;
-	/** �p�X���[�h�̍ő啶���� */
+	/** パスワードの最大文字数 */
 	public static final int PASSWORD_MAX_LENGTH = 15;
-	/** ���[�U���̍ő啶���� */
+	/** ユーザ名の最大文字数 */
 	public static final int USER_NAME_MAX_LENGTH = 15;
-	/** �O���[�vID�̍ő啶���� */
+	/** グループIDの最大文字数 */
 	public static final int GROUP_ID_MAX_LENGTH = 15;
-	/** �ꏊ���̍ő啶���� */
+	/** 場所名の最大文字数 */
 	public static final int PLACE_NAME_MAX_LENGTH = 15;
-	/** �O���[�v���̍ő啶���� */
+	/** グループ名の最大文字数 */
 	public static final int GROUP_NAME_MAX_LENGTH = 15;
-	/** �ʒm���̍ő啶���� */
+	/** 通知日の最大文字数 */
 	public static final int NOTIFICATION_DATE_MAX_LENGTH = 8;
-	/** �ʒm���Ԃ̍ő啶���� */
+	/** 通知時間の最大文字数 */
 	public static final int NOTIFICATION_TIME_MAX_LENGTH = 4;
-	/** �d�b�ԍ��̌����i�n�C�t�������j */
+	/** 電話番号の桁数（ハイフン無し） */
 	public static final int TELEPHONE_NUMBER_LENGTH = 11;
 
-	/** ���M�Ԋu�̗j��������ݒ�\���� */
+	/** 送信間隔の曜日当たり設定可能件数 */
 	public static final int SEND_INTERVAL_CONFIG_COUNT = 5;
 
-	/*-------- ���������p --------*/
-	/** PostgreSQL SQLSTATE:��Ӑ���ᔽ */
+	/*-------- 内部処理用 --------*/
+	/** PostgreSQL SQLSTATE:一意制約違反 */
 	public static final String SQLSTATE_UNIQUE_VIOLATION = "23505";
 
-	/** WGS84���n�n �ԓ����a */
+	/** WGS84測地系 赤道半径 */
 	public static final double WGS84_EQU_RAD = 6378137.000000;
-	/** WGS84���n�n �ɔ��a */
+	/** WGS84測地系 極半径 */
 	public static final double WGS84_POL_RAD = 6356752.314245;
 
-	/*-------- 2018/11/20�d�l�ǉ� �������[�U�`�F�b�N�p --------*/
-	/** �������[�U���݃`�F�b�N�p:���݂��Ȃ� */
+	/*-------- 2018/11/20仕様追加 初期ユーザチェック用 --------*/
+	/** 初期ユーザ存在チェック用:存在しない */
 	public static final int CHECK_USER_NOT_EXIST = 0;
-	/** �������[�U���݃`�F�b�N�p:���݂��� */
+	/** 初期ユーザ存在チェック用:存在する */
 	public static final int CHECK_USER_EXIST = 1;
 }

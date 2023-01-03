@@ -15,7 +15,7 @@ public class WebLoginInfoHolder {
 		return loginId;
 	}
 	/**
-	 * @param loginId ƒZƒbƒg‚·‚é loginId
+	 * @param loginId ã‚»ãƒƒãƒˆã™ã‚‹ loginId
 	 */
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
@@ -27,7 +27,7 @@ public class WebLoginInfoHolder {
 		return sessionId;
 	}
 	/**
-	 * @param sessionId ƒZƒbƒg‚·‚é sessionId
+	 * @param sessionId ã‚»ãƒƒãƒˆã™ã‚‹ sessionId
 	 */
 	public void setSessionId(String sessionId) {
 		this.sessionId = sessionId;

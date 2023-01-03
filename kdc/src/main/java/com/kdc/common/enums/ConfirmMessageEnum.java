@@ -3,7 +3,7 @@ package com.kdc.common.enums;
 import com.kdc.common.util.KdcCommonUtils;
 
 /**
- * Šm”FƒƒbƒZ[ƒWˆê——
+ * ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸€è¦§
  * 
  * @author umemoto
  * @since 2017/01/11
@@ -11,15 +11,15 @@ import com.kdc.common.util.KdcCommonUtils;
  *
  */
 public enum ConfirmMessageEnum {
-	// —ñ‹“q(•W€ƒƒbƒZ[ƒW)
-	DEFAULT_COMMIT("“o˜^‚µ‚Ü‚·‚©H"),
-	DELETE_USER("‚±‚Ìƒ†[ƒU‚ğíœ‚µ‚Ü‚·B‚æ‚ë‚µ‚¢‚Å‚·‚©H"),
-	DELETE_PLACE("‘I‘ğ‚µ‚½êŠ‚ğíœ‚µ‚Ü‚·B‚æ‚ë‚µ‚¢‚Å‚·‚©H"),;
+	// åˆ—æŒ™å­(æ¨™æº–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸)
+	DEFAULT_COMMIT("ç™»éŒ²ã—ã¾ã™ã‹ï¼Ÿ"),
+	DELETE_USER("ã“ã®ãƒ¦ãƒ¼ã‚¶ã‚’å‰Šé™¤ã—ã¾ã™ã€‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"),
+	DELETE_PLACE("é¸æŠã—ãŸå ´æ‰€ã‚’å‰Šé™¤ã—ã¾ã™ã€‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"),;
 
-	// ƒtƒB[ƒ‹ƒh
+	// ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 	final String message;
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	private ConfirmMessageEnum(String message) {
 		this.message = message;
 	}
@@ -29,9 +29,9 @@ public enum ConfirmMessageEnum {
 	}
 
 	/**
-	 * •\¦‚·‚é•¶š—ñ‚ğæ“¾.
+	 * è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã‚’å–å¾—.
 	 * 
-	 * @return ƒƒbƒZ[ƒW•¶š—ñA{@code null}‚Ìê‡A•¶š—ñ"null"‚ğ•Ô‚·
+	 * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æ–‡å­—åˆ—ã€{@code null}ã®å ´åˆã€æ–‡å­—åˆ—"null"ã‚’è¿”ã™
 	 */
 	public String getMessageString() {
 		if (KdcCommonUtils.isEmpty(this.message)) {

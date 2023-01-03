@@ -14,7 +14,7 @@ public class UserInfoCoreEntity {
 		return userId;
 	}
 	/**
-	 * @param userId ƒZƒbƒg‚·‚é userId
+	 * @param userId ã‚»ãƒƒãƒˆã™ã‚‹ userId
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -26,7 +26,7 @@ public class UserInfoCoreEntity {
 		return password;
 	}
 	/**
-	 * @param password ƒZƒbƒg‚·‚é password
+	 * @param password ã‚»ãƒƒãƒˆã™ã‚‹ password
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -38,7 +38,7 @@ public class UserInfoCoreEntity {
 		return groupId;
 	}
 	/**
-	 * @param groupId ƒZƒbƒg‚·‚é groupId
+	 * @param groupId ã‚»ãƒƒãƒˆã™ã‚‹ groupId
 	 */
 	public void setGroupId(String groupId) {
 		this.groupId = groupId;
@@ -50,7 +50,7 @@ public class UserInfoCoreEntity {
 		return authLevel;
 	}
 	/**
-	 * @param authLevel ƒZƒbƒg‚·‚é authLevel
+	 * @param authLevel ã‚»ãƒƒãƒˆã™ã‚‹ authLevel
 	 */
 	public void setAuthLevel(String authLevel) {
 		this.authLevel = authLevel;

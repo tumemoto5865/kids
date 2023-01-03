@@ -8,35 +8,35 @@ import com.kdc.web.common.javascript.JavaScriptHolder;
 import com.kdc.web.masterpage.MasterPage;
 
 /**
- * ƒ}ƒXƒ^ƒy[ƒWƒNƒ‰ƒX
+ * ãƒžã‚¹ã‚¿ãƒšãƒ¼ã‚¸ã‚¯ãƒ©ã‚¹
  */
 public abstract class MasterPageController {
 
-	// ƒƒOƒCƒ“î•ñ•ÛŽ
+	// ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ä¿æŒ
 	@Autowired
 	protected WebLoginInfoHolder loginInfoHolder;
 
-	// JavaScript î•ñ•ÛŽ
+	// JavaScript æƒ…å ±ä¿æŒ
 	@Autowired
 	protected JavaScriptHolder javaScriptHolder;
 
-	// Šm”FƒƒbƒZ[ƒWî•ñ•ÛŽ
+	// ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æƒ…å ±ä¿æŒ
 	@Autowired
 	protected JavaScriptConfirmHolder javaScriptConfirmHolder;
 
-	// ƒ}ƒXƒ^ƒy[ƒWˆ—
+	// ãƒžã‚¹ã‚¿ãƒšãƒ¼ã‚¸å‡¦ç†
 	@Autowired
 	private MasterPage masterPage;
 
 	/**
-	 * ‰Šú‰æ–Ê•\Ž¦.
+	 * åˆæœŸç”»é¢è¡¨ç¤º.
 	 * 
 	 * @see org.springframework.web
 	 */
 	public abstract String showPage(Model model);
 
 	/**
-	 * ƒ}ƒXƒ^[ƒy[ƒWˆ—.
+	 * ãƒžã‚¹ã‚¿ãƒ¼ãƒšãƒ¼ã‚¸å‡¦ç†.
 	 * 
 	 * @param model
 	 *            org.springframework.ui.Model

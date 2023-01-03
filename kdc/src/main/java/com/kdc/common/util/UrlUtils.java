@@ -7,17 +7,17 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
- * URL ‚ÉŒW‚í‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX.
+ * URL ã«ä¿‚ã‚ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹.
  */
 @Component
 public class UrlUtils {
 
 	/**
-	 * Spring MVC ‚Ì View ‚É‘Î‚·‚éƒŠƒ_ƒCƒŒƒNƒgw¦‚Ì•¶š—ñ‚ğ•Ô‚·.
+	 * Spring MVC ã® View ã«å¯¾ã™ã‚‹ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆæŒ‡ç¤ºã®æ–‡å­—åˆ—ã‚’è¿”ã™.
 	 * 
 	 * @param path
-	 *            ƒŠƒ_ƒCƒŒƒNƒgæ‚ÌƒpƒX
-	 * @return ƒŠƒ_ƒCƒŒƒNƒgw¦‚Ì•¶š—ñ ({@code not null})
+	 *            ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆå…ˆã®ãƒ‘ã‚¹
+	 * @return ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆæŒ‡ç¤ºã®æ–‡å­—åˆ— ({@code not null})
 	 */
 	public static String getRedirectString(String path) {
 		StringBuilder str = new StringBuilder();
@@ -31,11 +31,11 @@ public class UrlUtils {
 	}
 
 	/**
-	 * Spring MVC ‚Ì View ‚É‘Î‚·‚éƒtƒHƒ[ƒhw¦‚Ì•¶š—ñ‚ğ•Ô‚·.
+	 * Spring MVC ã® View ã«å¯¾ã™ã‚‹ãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰æŒ‡ç¤ºã®æ–‡å­—åˆ—ã‚’è¿”ã™.
 	 * 
 	 * @param path
-	 *            ƒtƒHƒ[ƒhæ‚ÌƒpƒX
-	 * @return ƒtƒHƒ[ƒhw¦‚Ì•¶š—ñ ({@code not null})
+	 *            ãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰å…ˆã®ãƒ‘ã‚¹
+	 * @return ãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰æŒ‡ç¤ºã®æ–‡å­—åˆ— ({@code not null})
 	 */
 	public static String getForwardString(String path) {
 		StringBuilder str = new StringBuilder();
@@ -49,14 +49,14 @@ public class UrlUtils {
 	}
 
 	/**
-	 * Web ‰æ–Ê‚Ì URL •¶š—ñ‚ğ•Ô‚·.
+	 * Web ç”»é¢ã® URL æ–‡å­—åˆ—ã‚’è¿”ã™.
 	 * <p>
-	 * JavaScript ‚â HTML ‚È‚Ç‚ÌƒŠƒ“ƒN‚Ég—p‚·‚é
+	 * JavaScript ã‚„ HTML ãªã©ã®ãƒªãƒ³ã‚¯ã«ä½¿ç”¨ã™ã‚‹
 	 * </p>
 	 * 
 	 * @param path
-	 *            ƒŠƒ“ƒNæ‚ÌƒpƒX
-	 * @return URL•¶š—ñ ({@code not null})
+	 *            ãƒªãƒ³ã‚¯å…ˆã®ãƒ‘ã‚¹
+	 * @return URLæ–‡å­—åˆ— ({@code not null})
 	 */
 	public static String getWebLinkUrl(String path) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())

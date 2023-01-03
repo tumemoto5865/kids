@@ -3,7 +3,7 @@ package com.kdc.common.util;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * ƒ†[ƒU•\¦FƒNƒ‰ƒX.
+ * ãƒ¦ãƒ¼ã‚¶è¡¨ç¤ºè‰²ã‚¯ãƒ©ã‚¹.
  */
 public class UserColorSet {
 
@@ -30,7 +30,7 @@ public class UserColorSet {
 
 	/**
 	 * @param colorName
-	 *            ƒZƒbƒg‚·‚é colorName
+	 *            ã‚»ãƒƒãƒˆã™ã‚‹ colorName
 	 */
 	public void setColorName(String colorName) {
 		this.colorName = colorName;
@@ -45,7 +45,7 @@ public class UserColorSet {
 
 	/**
 	 * @param lineColor
-	 *            ƒZƒbƒg‚·‚é lineColor
+	 *            ã‚»ãƒƒãƒˆã™ã‚‹ lineColor
 	 */
 	public void setLineColor(String lineColor) {
 		this.lineColor = lineColor;
@@ -60,98 +60,98 @@ public class UserColorSet {
 
 	/**
 	 * @param markerColorId
-	 *            ƒZƒbƒg‚·‚é markerColorId
+	 *            ã‚»ãƒƒãƒˆã™ã‚‹ markerColorId
 	 */
 	public void setMarkerColorId(int markerColorId) {
 		this.markerColorId = markerColorId;
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[‚ÌRGB—Ìˆæ
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼ã®RGBé ˜åŸŸ
 	 */
 	public String getLineColorRGBHex() {
 		return StringUtils.substring(this.lineColor, 2, 8);
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[‚ÌƒAƒ‹ƒtƒ@i“§‰ßj—Ìˆæ
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼ã®ã‚¢ãƒ«ãƒ•ã‚¡ï¼ˆé€éï¼‰é ˜åŸŸ
 	 */
 	public String getLineColorAlphaHex() {
 		return StringUtils.substring(this.lineColor, 0, 2);
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[‚ÌÔ—Ìˆæ
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼ã®èµ¤é ˜åŸŸ
 	 */
 	public String getLineColorRedHex() {
 		return StringUtils.substring(this.lineColor, 2, 4);
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[‚Ì—Î—Ìˆæ
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼ã®ç·‘é ˜åŸŸ
 	 */
 	public String getLineColorGreenHex() {
 		return StringUtils.substring(this.lineColor, 4, 6);
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[‚ÌÂ—Ìˆæ
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼ã®é’é ˜åŸŸ
 	 */
 	public String getLineColorBlueHex() {
 		return StringUtils.substring(this.lineColor, 6, 8);
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[‚Ì“§‰ß—Ìˆæ
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼ã®é€éé ˜åŸŸ
 	 */
 	public double getLineColorAlpha() {
 		return ((int) Long.parseLong(this.getLineColorAlphaHex(), 16)) / (double) 255.0;
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[Ô‚Ì16i”‚ğLongŒ^‚É•ÏŠ·
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼èµ¤ã®16é€²æ•°ã‚’Longå‹ã«å¤‰æ›
 	 */
 	public int getLineColorRed() {
 		return (int) Long.parseLong(this.getLineColorRedHex(), 16);
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[—Î‚Ì16i”‚ğLongŒ^‚É•ÏŠ·
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼ç·‘ã®16é€²æ•°ã‚’Longå‹ã«å¤‰æ›
 	 */
 	public int getLineColorGreen() {
 		return (int) Long.parseLong(this.getLineColorGreenHex(), 16);
 	}
 
 	/**
-	 * @return ƒ‰ƒCƒ“ƒJƒ‰[Â‚Ì16i”‚ğLongŒ^‚É•ÏŠ·
+	 * @return ãƒ©ã‚¤ãƒ³ã‚«ãƒ©ãƒ¼é’ã®16é€²æ•°ã‚’Longå‹ã«å¤‰æ›
 	 */
 	public int getLineColorBlue() {
 		return (int) Long.parseLong(this.getLineColorBlueHex(), 16);
 	}
 
 	// /**
-	// * @return Ô‚ÌRGB’l
+	// * @return èµ¤ã®RGBå€¤
 	// */
 	// public int getMarkerColorRed() {
 	// return this.colorObj.getRed();
 	// }
 	//
 	// /**
-	// * @return —Î‚ÌRGB’l
+	// * @return ç·‘ã®RGBå€¤
 	// */
 	// public int getMarkerColorGreen() {
 	// return this.colorObj.getGreen();
 	// }
 	//
 	// /**
-	// * @return Â‚ÌRGB’l
+	// * @return é’ã®RGBå€¤
 	// */
 	// public int getMarkerColorBlue() {
 	// return this.colorObj.getBlue();
 	// }
 	//
 	// /**
-	// * @return ƒ}[ƒJ[ƒJƒ‰[RGB16i”
+	// * @return ãƒãƒ¼ã‚«ãƒ¼ã‚«ãƒ©ãƒ¼RGB16é€²æ•°
 	// */
 	// public String getMarkerColorRGBHex() {
 	// return new
@@ -160,21 +160,21 @@ public class UserColorSet {
 	// }
 	//
 	// /**
-	// * @return 16i”2Œ…‚Ì•¶š—ñ‚É•ÏŠ·‚µ‚½Ô‚ÌRGB’l
+	// * @return 16é€²æ•°2æ¡ã®æ–‡å­—åˆ—ã«å¤‰æ›ã—ãŸèµ¤ã®RGBå€¤
 	// */
 	// public String getMarkerColorRedHex() {
 	// return String.format("%02x", this.getMarkerColorRed());
 	// }
 	//
 	// /**
-	// * @return 16i”2Œ…‚Ì•¶š—ñ‚É•ÏŠ·‚µ‚½—Î‚ÌRGB’l
+	// * @return 16é€²æ•°2æ¡ã®æ–‡å­—åˆ—ã«å¤‰æ›ã—ãŸç·‘ã®RGBå€¤
 	// */
 	// public String getMarkerColorGreenHex() {
 	// return String.format("%02x", this.getMarkerColorGreen());
 	// }
 	//
 	// /**
-	// * @return 16i”2Œ…‚Ì•¶š—ñ‚É•ÏŠ·‚µ‚½Â‚ÌRGB’l
+	// * @return 16é€²æ•°2æ¡ã®æ–‡å­—åˆ—ã«å¤‰æ›ã—ãŸé’ã®RGBå€¤
 	// */
 	// public String getMarkerColorBlueHex() {
 	// return String.format("%02x", this.getMarkerColorBlue());

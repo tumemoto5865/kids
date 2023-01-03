@@ -11,7 +11,7 @@ public class DeviceInfoEntity extends DeviceInfoCoreEntity {
 		return tokenId;
 	}
 	/**
-	 * @param tokenId ÉZÉbÉgÇ∑ÇÈ tokenId
+	 * @param tokenId „Çª„ÉÉ„Éà„Åô„Çã tokenId
 	 */
 	public void setTokenId(String tokenId) {
 		this.tokenId = tokenId;

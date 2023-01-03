@@ -8,9 +8,9 @@ import com.kdc.web.common.javascript.JavaScriptConfirmHolder;
 import com.kdc.web.common.javascript.JavaScriptHolder;
 
 /**
- * ƒ}ƒXƒ^ƒy[ƒWˆ—i”FØ‚È‚µj
+ * ãƒã‚¹ã‚¿ãƒšãƒ¼ã‚¸å‡¦ç†ï¼ˆèªè¨¼ãªã—ï¼‰
  * 
- * @author umemeoto
+ * @author umemoto
  * @since 2016/07/06
  * @version
  *
@@ -18,36 +18,36 @@ import com.kdc.web.common.javascript.JavaScriptHolder;
 @Component
 public class MasterPage {
 
-    // Šm”FƒƒbƒZ[ƒWî•ñ•Û
+    // ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æƒ…å ±ä¿æŒ
     @Autowired
     private JavaScriptConfirmHolder javaScriptConfirmHolder;
     
-    // Ajax î•ñ•Û
+    // Ajax æƒ…å ±ä¿æŒ
     @Autowired
     private JavaScriptHolder javaScriptHolder;
 
-//    // Œ³†î•ñ
+//    // å…ƒå·æƒ…å ±
 //    @Autowired
 //    private CodeInfoGengoHolder codeInfoGengoHolder; 
     
     /**
-     * ƒ}ƒXƒ^ƒy[ƒW•\¦ˆ—. 
+     * ãƒã‚¹ã‚¿ãƒšãƒ¼ã‚¸è¡¨ç¤ºå‡¦ç†. 
      */
     public void showPage(Model model) {
-        // JavaScript ‚Ìİ’è
+        // JavaScript ã®è¨­å®š
         StringBuilder js = new StringBuilder();
-        // iŠm”FƒƒbƒZ[ƒW—p‚ÌJavaScriptj
+        // ï¼ˆç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç”¨ã®JavaScriptï¼‰
         js.append(this.javaScriptConfirmHolder.getJavaScriptSource(false));
-//        // iŒ³†•ÏŠ·—p‚Ìî•ñj
+//        // ï¼ˆå…ƒå·å¤‰æ›ç”¨ã®æƒ…å ±ï¼‰
 //        js.append("var msSrvGengoDays=").append(this.codeInfoGengoHolder.getJsGengoDaysArray()).append(";");
 //        js.append("var msSrvGengoWarekis=").append(this.codeInfoGengoHolder.getJsGengoWarekisArray()).append(";");
-//        // i‹x“ú”»’f—p‚Ìî•ñj
+//        // ï¼ˆä¼‘æ—¥åˆ¤æ–­ç”¨ã®æƒ…å ±ï¼‰
 //        js.append("var msSrvHolidays=").append("[];");
-        // iƒ†[ƒU’è‹`‚ÌJavaScriptj
+        // ï¼ˆãƒ¦ãƒ¼ã‚¶å®šç¾©ã®JavaScriptï¼‰
         js.append(this.javaScriptHolder.getJavaScriptSource(false));
         model.addAttribute("pagejs", js.toString());
 
-        // CSS ‚Ìİ’è
+        // CSS ã®è¨­å®š
         StringBuilder css = new StringBuilder();
         css.append(this.javaScriptHolder.getCssStyleSource(false));
         model.addAttribute("pagecss", css.toString());

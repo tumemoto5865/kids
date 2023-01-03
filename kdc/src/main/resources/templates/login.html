@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>ƒƒOƒCƒ“</title>
+  <title>ãƒ­ã‚°ã‚¤ãƒ³</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
   <link rel="stylesheet" type="text/css" th:href="@{/css/core.css}" />
@@ -9,11 +9,11 @@
 </head>
 <body>
   <script th:utext="${pagejs}"></script>
-  <div id="titleArea" th:text="${lblTitle}">ƒLƒbƒYƒRƒ“ƒgƒ[ƒ‹@@ƒƒOƒCƒ“‰æ–Ê</div>
+  <div id="titleArea" th:text="${lblTitle}">ã‚­ãƒƒã‚ºã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã€€ç”»é¢</div>
   <div class="mainDiv">
   <form action="" method="post" >
   <div class="loginDiv">
-    <div class="loginMsg" th:if="${form.loginErrorFlg}"><span>ID‚Ü‚½‚ÍƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·B</span></div>
+    <div class="loginMsg" th:if="${form.loginErrorFlg}"><span>IDã¾ãŸã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™ã€‚</span></div>
     <table>
       <tr>
       <td class="id">
@@ -25,7 +25,7 @@
       </tr>
       <tr>
       <td class="pass">
-        ƒpƒXƒ[ƒh
+        ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
       </td>
       <td>
         <input th:name="loginPass" th:id="loginPass" type="password" size="12" th:value="${form.loginPass}" />
@@ -37,7 +37,7 @@
       <td>
         <div class="buttonDivL">
           <button class="login" type="submit" name="action" value="doCommit" id="doCommit" >
-            <img class="iconStyle" th:src="@{/images/icon/login.png}" alt="ƒƒOƒCƒ“" />
+            <img class="iconStyle" th:src="@{/images/icon/login.png}" alt="ãƒ­ã‚°ã‚¤ãƒ³" />
           </button>
         </div>
       </td>

@@ -1,7 +1,7 @@
 package com.kdc.common.util;
 
 /**
- * ƒAƒCƒRƒ“‰æ‘œƒf[ƒ^ƒNƒ‰ƒX.
+ * ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒãƒ‡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹.
  */
 public class IconDataSet {
 
@@ -17,7 +17,7 @@ public class IconDataSet {
 
 	/**
 	 * @param iconName
-	 *            ƒZƒbƒg‚·‚é iconName
+	 *            ã‚»ãƒƒãƒˆã™ã‚‹ iconName
 	 */
 	public void setIconName(String iconName) {
 		this.iconName = iconName;
@@ -32,7 +32,7 @@ public class IconDataSet {
 
 	/**
 	 * @param iconData
-	 *            ƒZƒbƒg‚·‚é iconData
+	 *            ã‚»ãƒƒãƒˆã™ã‚‹ iconData
 	 */
 	public void setIconData(byte[] iconData) {
 		this.iconData = iconData;

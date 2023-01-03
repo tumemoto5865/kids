@@ -7,7 +7,7 @@ import com.kdc.common.entity.db.AdministratorMasterEntity;
 import com.kdc.mybatis.mapper.web.WebLoginMapper;
 
 /**
- * ƒƒOƒCƒ“‰æ–Ê Service ƒNƒ‰ƒX
+ * ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ Service ã‚¯ãƒ©ã‚¹
  * 
  *
  */
@@ -18,7 +18,7 @@ public class WebLoginService {
 	private WebLoginMapper webLoginMapper;
 
 	/**
-	 * ‰Šúˆ—.
+	 * åˆæœŸå‡¦ç†.
 	 * 
 	 * @param form
 	 */
@@ -29,11 +29,11 @@ public class WebLoginService {
 	}
 
 	/**
-	 * ŠÇ—Òƒ}ƒXƒ^æ“¾.
+	 * ç®¡ç†è€…ãƒã‚¹ã‚¿å–å¾—.
 	 * 
 	 * @param form
-	 * 			ƒƒOƒCƒ“‰æ–ÊƒtƒH[ƒ€
-	 * @return æ“¾”»’èŒ‹‰Ê
+	 * 			ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ãƒ•ã‚©ãƒ¼ãƒ 
+	 * @return å–å¾—åˆ¤å®šçµæœ
 	 */
 	public Boolean getAdministrator(WebLoginForm form) {
 
