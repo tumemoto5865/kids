@@ -18,7 +18,7 @@ import com.kdc.web.base.MasterPageController;
 
 
 /**
- * ƒƒOƒCƒ“‰æ–Ê Controller ƒNƒ‰ƒX
+ *ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ Controller ã‚¯ãƒ©ã‚¹
  * 
  *
  */
@@ -30,58 +30,58 @@ public class WebLoginController extends MasterPageController {
 	@Autowired
 	private WebLoginService service;
 
-	// ƒy[ƒW–¼Ì
+	// ãƒšãƒ¼ã‚¸åç§°
 	private static final String THISPAGE = WebPageEnum.LOGIN.getId();
 
 	/**
-	 * ‰Šú‰æ–Ê•\¦
+	 * åˆæœŸç”»é¢è¡¨ç¤º
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	@Override
 	public String showPage(Model model) {
 		model.addAttribute("lblTitle", WebPageEnum.LOGIN.getPageTitleLabel());
 
-		// “ü—Í€–Ú‚Ì‰Šú’l‚ğİ’è
+		// å…¥åŠ›é …ç›®ã®åˆæœŸå€¤ã‚’è¨­å®š
 		WebLoginForm form = new WebLoginForm();
 
-		// ‰æ–Ê‰Šú‰»ˆ—
+		// ç”»é¢åˆæœŸåŒ–å‡¦ç†
 		this.service.init(form);
 
 		model.addAttribute("form", form);
 
-		// ƒ}ƒXƒ^ƒy[ƒWˆ—
+		// ãƒã‚¹ã‚¿ãƒšãƒ¼ã‚¸å‡¦ç†
 		return setMasterPage(model, THISPAGE);
 	}
 
 	/**
-	 * “o˜^ƒ{ƒ^ƒ“‰Ÿ‰ºˆ—.
+	 * ç™»éŒ²ãƒœã‚¿ãƒ³æŠ¼ä¸‹æ™‚å‡¦ç†
 	 * 
 	 * @param model
 	 * @param form
-	 * 			ƒƒOƒCƒ“‰æ–ÊƒtƒH[ƒ€
+	 * 			ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ãƒ•ã‚©ãƒ¼ãƒ 
 	 * @param session
 	 * @param attributes
-	 * @return ƒŠƒ_ƒCƒŒƒNƒgæ‚ÌƒpƒX•¶š—ñ
+	 * @return ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆå…ˆã®ãƒ‘ã‚¹æ–‡å­—åˆ—
 	 */
 	@RequestMapping(params = "action=doCommit", method = RequestMethod.POST)
 	public String doCommit(Model model, WebLoginForm form, HttpSession session, RedirectAttributes attributes) {
 
-		// ŠÇ—Ò–â‡‚¹
+		// ç®¡ç†è€…å•åˆã›
 		if (!this.service.getAdministrator(form)) {
 			form.setLoginErrorFlg(true);
 
-			// loginÄ•\¦
+			// loginå†è¡¨ç¤º
 			model.addAttribute("lblTitle", WebPageEnum.LOGIN.getPageTitleLabel());
 			model.addAttribute("form", form);
 			return THISPAGE;
 		} else {
 			super.loginInfoHolder.setLoginId(form.getLoginId());
 			super.loginInfoHolder.setSessionId(session.getId());
-			// ‘JˆÚæ‚É’l‚ğİ’è
+			// é·ç§»å…ˆã«å€¤ã‚’è¨­å®š
 			attributes.addAttribute("loginId", form.getLoginId());
 			attributes.addAttribute("sessionId", session.getId());
 
-			// main‚Ö‘JˆÚ
+			// mainã¸é·ç§»
 			return UrlUtils.getRedirectString(WebPageEnum.MAIN.getId());
 		}
 	}

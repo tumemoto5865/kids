@@ -17,9 +17,9 @@ import com.kdc.web.common.error.ComErrorInfoData;
 import com.kdc.web.common.error.ComErrorInfoData.ErrorInfo;
 
 /**
- * JavaScript‚ÆCSS‚ğ•Û‚µAƒ}ƒXƒ^ƒy[ƒW‚É”½‰f‚·‚é
+ * JavaScriptã¨CSSã‚’ä¿æŒã—ã€ãƒã‚¹ã‚¿ãƒšãƒ¼ã‚¸ã«åæ˜ ã™ã‚‹
  * 
- * @author shimizuh@kksse.co.jp
+ * @author umemoto
  * @since 2016/07/06
  * @version
  *
@@ -28,13 +28,13 @@ import com.kdc.web.common.error.ComErrorInfoData.ErrorInfo;
 @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class JavaScriptHolder {
 
-	// Ajax‚Åg—p‚·‚éƒgƒŠƒK[€–Ú‚ÌKey•¶š—ñ.
+	// Ajaxã§ä½¿ç”¨ã™ã‚‹ãƒˆãƒªã‚¬ãƒ¼é …ç›®ã®Keyæ–‡å­—åˆ—.
 	private static final String TRIGGER_ID = "triggerid";
 	private static final String TRIGGER_VALUE = "triggerval";
 
-	// JavaScript ƒCƒxƒ“ƒg¯•Êq
+	// JavaScript ã‚¤ãƒ™ãƒ³ãƒˆè­˜åˆ¥å­
 	public enum EventHandlerEnum {
-		// ¯•Êq
+		// è­˜åˆ¥å­
 		onBlur("blur"),
 		onChange("change"),
 		onClick("click"),
@@ -56,10 +56,10 @@ public class JavaScriptHolder {
 		onUnload("unload"),
 		;
 
-		// ƒtƒB[ƒ‹ƒh
+		// ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 		private String source;
 
-		// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		private EventHandlerEnum(String source) {
 			this.source = source;
 		}
@@ -70,23 +70,23 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Ajax İ’è€–Ú.
+	 * Ajax è¨­å®šé …ç›®.
 	 */
 	public class AjaxItem {
-		// AjaxƒgƒŠƒK[î•ñ.
+		// Ajaxãƒˆãƒªã‚¬ãƒ¼æƒ…å ±.
 		private class Trigger {
 			public String id;
 			public EventHandlerEnum eventHandler;
 		}
 
-		// Ajaxƒpƒ‰ƒ[ƒ^î•ñ.
+		// Ajaxãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æƒ…å ±.
 		private class Parameter {
 			public String id;
 			public String keyId;
 			public String keyValue;
 		}
 
-		// Ajaxƒpƒ‰ƒ[ƒ^iŒÅ’è’ljî•ñ.
+		// Ajaxãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ï¼ˆå›ºå®šå€¤ï¼‰æƒ…å ±.
 		private class Constant {
 			public String value;
 			public String keyValue;
@@ -101,18 +101,18 @@ public class JavaScriptHolder {
 		private List<Parameter> parameterList = new ArrayList<>();
 		private List<Constant> constantList = new ArrayList<>();
 
-		// Ajax—p‚ÌJavaScriptŠÖ”–¼‚ğ•Ô‚·.
+		// Ajaxç”¨ã®JavaScripté–¢æ•°åã‚’è¿”ã™.
 		protected String getFuncName() {
 			return new StringBuilder("AjaxF").append(this.index).toString();
 		}
 
 		/**
-		 * AjaxƒgƒŠƒK[‚ğ’Ç‰Á‚·‚é.
+		 * Ajaxãƒˆãƒªã‚¬ãƒ¼ã‚’è¿½åŠ ã™ã‚‹.
 		 * 
 		 * @param targetId
-		 *            ƒgƒŠƒK[‚ğİ’è‚·‚éHTMLã‚ÌID•¶š—ñ
+		 *            ãƒˆãƒªã‚¬ãƒ¼ã‚’è¨­å®šã™ã‚‹HTMLä¸Šã®IDæ–‡å­—åˆ—
 		 * @param eventHandler
-		 *            İ’è‚·‚éƒgƒŠƒK[í—Ş
+		 *            è¨­å®šã™ã‚‹ãƒˆãƒªã‚¬ãƒ¼ç¨®é¡
 		 */
 		public void addTrigger(String targetId, EventHandlerEnum eventHandler) {
 			Trigger trigger = new Trigger();
@@ -122,14 +122,14 @@ public class JavaScriptHolder {
 		}
 
 		/**
-		 * Ajaxƒpƒ‰ƒ[ƒ^‚ğ’Ç‰Á‚·‚é.
+		 * Ajaxãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¿½åŠ ã™ã‚‹.
 		 * 
 		 * @param paramId
-		 *            ’l‚ğæ“¾‚·‚éHTMLã‚ÌID•¶š—ñ
+		 *            å€¤ã‚’å–å¾—ã™ã‚‹HTMLä¸Šã®IDæ–‡å­—åˆ—
 		 * @param keyId
-		 *            ŒÄ‚Ño‚µ‚Ìæ“¾Key•¶š—ñiHTMLã‚ÌID•¶š—ñ)
+		 *            å‘¼ã³å‡ºã—æ™‚ã®å–å¾—Keyæ–‡å­—åˆ—ï¼ˆHTMLä¸Šã®IDæ–‡å­—åˆ—)
 		 * @param keyValue
-		 *            ŒÄ‚Ño‚µ‚Ìæ“¾Key•¶š—ñ(’l)
+		 *            å‘¼ã³å‡ºã—æ™‚ã®å–å¾—Keyæ–‡å­—åˆ—(å€¤)
 		 */
 		public void addParameter(String paramId, String keyId, String keyValue) {
 			Parameter parameter = new Parameter();
@@ -140,12 +140,12 @@ public class JavaScriptHolder {
 		}
 
 		/**
-		 * Ajaxƒpƒ‰ƒ[ƒ^(ŒÅ’è’l)‚ğ’Ç‰Á‚·‚é.
+		 * Ajaxãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿(å›ºå®šå€¤)ã‚’è¿½åŠ ã™ã‚‹.
 		 * 
 		 * @param value
-		 *            ŒÅ’è’l•¶š—ñ
+		 *            å›ºå®šå€¤æ–‡å­—åˆ—
 		 * @param keyValue
-		 *            ŒÄ‚Ño‚µ‚Ìæ“¾Key•¶š—ñ(ŒÅ’è’l)
+		 *            å‘¼ã³å‡ºã—æ™‚ã®å–å¾—Keyæ–‡å­—åˆ—(å›ºå®šå€¤)
 		 */
 		public void addConstant(String value, String keyValue) {
 			Constant constant = new Constant();
@@ -155,36 +155,36 @@ public class JavaScriptHolder {
 		}
 	}
 
-	// •Ï”’è‹`‚âŠÖ”’è‹`‚È‚Ç‚Ì JavaScriptƒŠƒXƒg
+	// å¤‰æ•°å®šç¾©ã‚„é–¢æ•°å®šç¾©ãªã©ã® JavaScriptãƒªã‚¹ãƒˆ
 	private List<String> defineList = new ArrayList<>();
-	// Document Ready‚ÉÀs‚·‚éJavaScript‚ÌƒŠƒXƒg
+	// Document Readyæ™‚ã«å®Ÿè¡Œã™ã‚‹JavaScriptã®ãƒªã‚¹ãƒˆ
 	private List<String> javaScriptList = new ArrayList<>();
-	// ‹¤’Êƒ|ƒbƒvƒAƒbƒv‰æ–Ê‚©‚çe‰æ–Ê‚É’l‚ğ–ß‚·JavaScript‚ÌƒŠƒXƒg(ˆ—Œ‹‰Ê)
+	// å…±é€šãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç”»é¢ã‹ã‚‰è¦ªç”»é¢ã«å€¤ã‚’æˆ»ã™JavaScriptã®ãƒªã‚¹ãƒˆ(å‡¦ç†çµæœ)
 	private List<String> popupResultList = new ArrayList<>();
-	// Ajaxİ’è€–ÚƒŠƒXƒg
+	// Ajaxè¨­å®šé …ç›®ãƒªã‚¹ãƒˆ
 	private List<AjaxItem> ajaxList = new ArrayList<>();
-	// CSSƒŠƒXƒg
+	// CSSãƒªã‚¹ãƒˆ
 	private List<String> cssList = new ArrayList<>();
 
 	/**
-	 * V‚µ‚¢ Ajaxİ’è€–Ú‚ğ•Ô‚·.
+	 * æ–°ã—ã„ Ajaxè¨­å®šé …ç›®ã‚’è¿”ã™.
 	 * 
-	 * @return Ajaxİ’è€–Ú ({@code not null})
+	 * @return Ajaxè¨­å®šé …ç›® ({@code not null})
 	 */
 	public AjaxItem getNewItem() {
 		return new AjaxItem();
 	}
 
 	/**
-	 * Ajaxˆ—‚ğ’Ç‰Á‚·‚é(Response‚ªJavaScript).
+	 * Ajaxå‡¦ç†ã‚’è¿½åŠ ã™ã‚‹(ResponseãŒJavaScript).
 	 * 
 	 * @param ajaxUrl
-	 *            Ajax‚ÅŒÄ‚Ño‚·URL
+	 *            Ajaxã§å‘¼ã³å‡ºã™URL
 	 * @param isAsync
-	 *            “¯Šú(false)/”ñ“¯Šú(true)
+	 *            åŒæœŸ(false)/éåŒæœŸ(true)
 	 * @param item
-	 *            Ajaxİ’è€–Ú
-	 * @return V‚µ‚¢Ajaxİ’è€–Ú ({@code not null})
+	 *            Ajaxè¨­å®šé …ç›®
+	 * @return æ–°ã—ã„Ajaxè¨­å®šé …ç›® ({@code not null})
 	 */
 	public AjaxItem addAjaxScript(String ajaxUrl, Boolean isAsync, AjaxItem item) {
 		if (item.triggerList.size() == 0) {
@@ -200,17 +200,17 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Ajaxˆ—‚ğ’Ç‰Á‚·‚é(Response‚ªJson).
+	 * Ajaxå‡¦ç†ã‚’è¿½åŠ ã™ã‚‹(ResponseãŒJson).
 	 * 
 	 * @param ajaxUrl
-	 *            Ajax‚ÅŒÄ‚Ño‚·URL
+	 *            Ajaxã§å‘¼ã³å‡ºã™URL
 	 * @param isAsync
-	 *            “¯Šú(false)/”ñ“¯Šú(true)
+	 *            åŒæœŸ(false)/éåŒæœŸ(true)
 	 * @param callBack
-	 *            Json‚ğó‚¯æ‚éJavaScriptŠÖ”–¼
+	 *            Jsonã‚’å—ã‘å–ã‚‹JavaScripté–¢æ•°å
 	 * @param item
-	 *            Ajaxİ’è€–Ú
-	 * @return V‚µ‚¢Ajaxİ’è€–Ú ({@code not null})
+	 *            Ajaxè¨­å®šé …ç›®
+	 * @return æ–°ã—ã„Ajaxè¨­å®šé …ç›® ({@code not null})
 	 */
 	public AjaxItem addAjaxJson(String ajaxUrl, Boolean isAsync, String callBack, AjaxItem item) {
 		if (item.triggerList.size() == 0) {
@@ -226,62 +226,62 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Document Ready‚ÉÀs‚·‚éJavaScript‚ğ“o˜^‚·‚é.
+	 * Document Readyæ™‚ã«å®Ÿè¡Œã™ã‚‹JavaScriptã‚’ç™»éŒ²ã™ã‚‹.
 	 * 
 	 * @param javaScript
-	 *            JavaScript•¶š—ñ
+	 *            JavaScriptæ–‡å­—åˆ—
 	 */
 	public void addJavaScript(String javaScript) {
 		this.javaScriptList.add(javaScript);
 	}
 
 	/**
-	 * •Ï”’è‹`‚âŠÖ”’è‹`‚È‚Ç‚ÌJavaScript‚ğ“o˜^‚·‚é.
+	 * å¤‰æ•°å®šç¾©ã‚„é–¢æ•°å®šç¾©ãªã©ã®JavaScriptã‚’ç™»éŒ²ã™ã‚‹.
 	 * 
 	 * @param javaScript
-	 *            JavaScript•¶š—ñ
+	 *            JavaScriptæ–‡å­—åˆ—
 	 */
 	public void addDefineScript(String javaScript) {
 		this.defineList.add(javaScript);
 	}
 
 	/**
-	 * ‹¤’Êƒ|ƒbƒvƒAƒbƒv‰æ–Ê‚©‚çe‰æ–Ê‚É’l‚ğ–ß‚·JavaScript(ˆ—Œ‹‰Ê)‚ÌƒŠƒXƒg‚ğ“o˜^‚·‚é.
+	 * å…±é€šãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç”»é¢ã‹ã‚‰è¦ªç”»é¢ã«å€¤ã‚’æˆ»ã™JavaScript(å‡¦ç†çµæœ)ã®ãƒªã‚¹ãƒˆã‚’ç™»éŒ²ã™ã‚‹.
 	 * 
 	 * @param javaScript
-	 *            JavaScript•¶š—ñ
+	 *            JavaScriptæ–‡å­—åˆ—
 	 */
 	public void addPopupResultList(String javaScript) {
 		this.popupResultList.add(javaScript);
 	}
 
 	/**
-	 * CSS‚ğ“o˜^‚·‚é.
+	 * CSSã‚’ç™»éŒ²ã™ã‚‹.
 	 * 
 	 * @param css
-	 *            CSS•¶š—ñ
+	 *            CSSæ–‡å­—åˆ—
 	 */
 	public void addCssStyle(String css) {
 		this.cssList.add(css);
 	}
 
 	/**
-	 * ÅI“I‚ÈJavaScriptƒ\[ƒX•¶š—ñ‚ğ•Ô‚·.
+	 * æœ€çµ‚çš„ãªJavaScriptã‚½ãƒ¼ã‚¹æ–‡å­—åˆ—ã‚’è¿”ã™.
 	 * 
 	 * @param prettyPrint
-	 *            ‰üs®Œ`(true)/®Œ`‚È‚µ(false)
-	 * @return JavaScriptƒ\[ƒX•¶š—ñ
+	 *            æ”¹è¡Œæ•´å½¢(true)/æ•´å½¢ãªã—(false)
+	 * @return JavaScriptã‚½ãƒ¼ã‚¹æ–‡å­—åˆ—
 	 */
 	public String getJavaScriptSource(Boolean prettyPrint) {
 		StringBuilder str = new StringBuilder();
 
-		// •Ï”’è‹`‚âŠÖ”’è‹`‚È‚Ç‚ÌJavaScript‚ğo—Í‚·‚é
+		// å¤‰æ•°å®šç¾©ã‚„é–¢æ•°å®šç¾©ãªã©ã®JavaScriptã‚’å‡ºåŠ›ã™ã‚‹
 		for (String js : this.defineList) {
 			str.append(js);
 			str.append(prettyPrint ? "\n" : "");
 		}
 
-		// ‹¤’Êƒ|ƒbƒvƒAƒbƒv‰æ–Ê‚©‚çe‰æ–Ê‚É’l‚ğ–ß‚·JavaScript
+		// å…±é€šãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç”»é¢ã‹ã‚‰è¦ªç”»é¢ã«å€¤ã‚’æˆ»ã™JavaScript
 		if (this.popupResultList.size() != 0) {
 			str.append("$(function(){");
 			str.append(prettyPrint ? "\n" : "");
@@ -295,9 +295,9 @@ public class JavaScriptHolder {
 			str.append(prettyPrint ? "\n" : "");
 		}
 
-		// Ajax—p‚ÌJavaScript‚ğo—Í‚·‚é
+		// Ajaxç”¨ã®JavaScriptã‚’å‡ºåŠ›ã™ã‚‹
 		str.append(this.getAjaxSource(prettyPrint));
-		// Document Ready‚ÉÀs‚·‚éJavaScript‚ğo—Í‚·‚é
+		// Document Readyæ™‚ã«å®Ÿè¡Œã™ã‚‹JavaScriptã‚’å‡ºåŠ›ã™ã‚‹
 		if (this.javaScriptList.size() != 0) {
 			str.append("$(function(){");
 			str.append(prettyPrint ? "\n" : "");
@@ -313,14 +313,14 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * CSS•¶š—ñ‚ğ•Ô‚·.
+	 * CSSæ–‡å­—åˆ—ã‚’è¿”ã™.
 	 * 
-	 * @return CSS•¶š—ñ
+	 * @return CSSæ–‡å­—åˆ—
 	 */
 	public String getCssStyleSource(Boolean prettyPrint) {
 		StringBuilder str = new StringBuilder();
 
-		// CSS‚ğo—Í‚·‚é
+		// CSSã‚’å‡ºåŠ›ã™ã‚‹
 		for (String css : this.cssList) {
 			str.append(css);
 			str.append(prettyPrint ? "\n" : "");
@@ -329,16 +329,16 @@ public class JavaScriptHolder {
 		return str.toString();
 	}
 
-	// Ajax‚ÌJavaScriptƒ\[ƒX•¶š—ñ‚ğæ“¾‚·‚é
+	// Ajaxã®JavaScriptã‚½ãƒ¼ã‚¹æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹
 	private String getAjaxSource(Boolean prettyPrint) {
 		StringBuilder str = new StringBuilder();
 
-		// ‘ÎÛ‚ª‘¶İ‚µ‚È‚¢ê‡
+		// å¯¾è±¡ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 		if (this.ajaxList.isEmpty()) {
 			return "";
 		}
 
-		// Trigger ‚Ì JavaScript ¶¬
+		// Trigger ã® JavaScript ç”Ÿæˆ
 		str.append("$(function(){");
 		str.append(prettyPrint ? '\n' : "");
 		for (AjaxItem item : this.ajaxList) {
@@ -366,9 +366,9 @@ public class JavaScriptHolder {
 		str.append("});");
 		str.append(prettyPrint ? "\n\n" : "");
 
-		// Function‚ÌJavaScript ¶¬
+		// Functionã®JavaScript ç”Ÿæˆ
 		for (AjaxItem item : this.ajaxList) {
-			// Ajax‚ÌData•”‚ğ€”õ
+			// Ajaxã®Dataéƒ¨ã‚’æº–å‚™
 			LinkedHashMap<String, String> dataList = new LinkedHashMap<>();
 			dataList.put(String.format("\"%s\"", TRIGGER_ID), "triggerid");
 			dataList.put(String.format("\"%s\"", TRIGGER_VALUE), "getItemVal(triggerid)");
@@ -383,7 +383,7 @@ public class JavaScriptHolder {
 			for (String key : dataList.keySet()) {
 				lastKey = key;
 			}
-			// AjaxŠÖ”
+			// Ajaxé–¢æ•°
 			str.append("function ").append(item.getFuncName()).append("(triggerid){");
 			str.append(prettyPrint ? "\n\t" : "");
 			str.append("var inputdata = $('form').serializeArray();");
@@ -398,7 +398,7 @@ public class JavaScriptHolder {
 			str.append(prettyPrint ? "\n\t\t" : "");
 			str.append("dataType:\"").append(item.dataType).append("\",");
 			str.append(prettyPrint ? "\n\t\t" : "");
-			// Data•” İ’è
+			// Dataéƒ¨ è¨­å®š
 			str.append("data:{");
 			for (Map.Entry<String, String> entry : dataList.entrySet()) {
 				str.append(prettyPrint ? "\n\t\t\t" : "");
@@ -413,7 +413,7 @@ public class JavaScriptHolder {
 			str.append("}");
 			str.append(prettyPrint ? "\n\t" : "");
 			str.append("})");
-			// ¬Œ÷‚Ìˆ—
+			// æˆåŠŸæ™‚ã®å‡¦ç†
 			if (!item.callBack.isEmpty()) {
 				str.append(".done(function(data,textStatus,jqXHR){");
 				str.append(prettyPrint ? "\n\t\t" : "");
@@ -421,12 +421,12 @@ public class JavaScriptHolder {
 				str.append(prettyPrint ? "\n\t" : "");
 				str.append("})");
 			}
-			// ¸”s‚Ìˆ—
+			// å¤±æ•—æ™‚ã®å‡¦ç†
 			str.append(".fail(function(data,textStatus,errorThrown){");
 			str.append(prettyPrint ? "\n\t\t" : "");
 			str.append("if (data.status == 408) {");
 			str.append(prettyPrint ? "\n\t\t" : "");
-			str.append("alert(\"ƒZƒbƒVƒ‡ƒ“‚ªØ‚ê‚Ü‚µ‚½B\\nÄ“xƒƒOƒCƒ“‚µ‚Ä‰º‚³‚¢B\");");
+			str.append("alert(\"ã‚»ãƒƒã‚·ãƒ§ãƒ³ãŒåˆ‡ã‚Œã¾ã—ãŸã€‚\\nå†åº¦ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ä¸‹ã•ã„ã€‚\");");
 			str.append(prettyPrint ? "\n\t\t" : "");
 			str.append("return;");
 			str.append(prettyPrint ? "\n\t\t" : "");
@@ -434,13 +434,13 @@ public class JavaScriptHolder {
 			str.append(prettyPrint ? "\n\t\t" : "");
 			str.append("if (data.status == 0) {");
 			str.append(prettyPrint ? "\n\t\t" : "");
-			str.append("alert(\"ˆê“I‚ÉƒT[ƒo‚Æ‚Ì’ÊM‚ªØ‚ê‚Ü‚µ‚½B\\nÄ“x‘€ì‚µ‚Ä‚­‚¾‚³‚¢B\");");
+			str.append("alert(\"ä¸€æ™‚çš„ã«ã‚µãƒ¼ãƒã¨ã®é€šä¿¡ãŒåˆ‡ã‚Œã¾ã—ãŸã€‚\\nå†åº¦æ“ä½œã—ã¦ãã ã•ã„ã€‚\");");
 			str.append(prettyPrint ? "\n\t\t" : "");
 			str.append("return;");
 			str.append(prettyPrint ? "\n\t\t" : "");
 			str.append("}");
 			str.append(prettyPrint ? "\n\t\t" : "");
-			str.append("alert(\"“à•”ƒGƒ‰[(\"+data.status+\":\"+textStatus+\":\"+errorThrown+\")\");");
+			str.append("alert(\"å†…éƒ¨ã‚¨ãƒ©ãƒ¼(\"+data.status+\":\"+textStatus+\":\"+errorThrown+\")\");");
 			str.append(prettyPrint ? "\n\t\t" : "");
 			str.append("});");
 			str.append(prettyPrint ? "\n" : "");
@@ -452,61 +452,61 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒgƒŠƒK[‚ªİ’è‚³‚ê‚½€–Ú‚ÌID•¶š—ñ‚ğæ“¾‚·‚é.
+	 * ãƒˆãƒªã‚¬ãƒ¼ãŒè¨­å®šã•ã‚ŒãŸé …ç›®ã®IDæ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param request
 	 *            WebRequest
-	 * @return ID•¶š—ñ
+	 * @return IDæ–‡å­—åˆ—
 	 */
 	public String getAjaxTriigerId(WebRequest request) {
 		return request.getParameter(TRIGGER_ID);
 	}
 
 	/**
-	 * ƒgƒŠƒK[‚ªİ’è‚³‚ê‚½€–Ú‚Ì’l‚ğæ“¾‚·‚é.
+	 * ãƒˆãƒªã‚¬ãƒ¼ãŒè¨­å®šã•ã‚ŒãŸé …ç›®ã®å€¤ã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param request
 	 *            WebRequest
-	 * @return ’l•¶š—ñ
+	 * @return å€¤æ–‡å­—åˆ—
 	 */
 	public String getAjaxTriggetValue(WebRequest request) {
 		return request.getParameter(TRIGGER_VALUE);
 	}
 
 	/**
-	 * Ajaxƒpƒ‰ƒ[ƒ^‚ğæ“¾‚·‚é.
+	 * Ajaxãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param request
 	 *            WebRequest
 	 * @param key
-	 *            ƒL[•¶š—ñ
-	 * @return ƒpƒ‰ƒ[ƒ^î•ñ•¶š—ñ
+	 *            ã‚­ãƒ¼æ–‡å­—åˆ—
+	 * @return ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æƒ…å ±æ–‡å­—åˆ—
 	 */
 	public String getAjaxParameter(WebRequest request, String key) {
 		return request.getParameter(key);
 	}
 
 	/**
-	 * •\¦/”ñ•\¦‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * è¡¨ç¤º/éè¡¨ç¤ºã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isDisplay
-	 *            •\¦(true)/”ñ•\¦(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¡¨ç¤º(true)/éè¡¨ç¤º(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsDisplay(String id, Boolean isDisplay) {
 		return new StringBuilder("$(\"#").append(id).append("\").toggle(").append(isDisplay).append(");").toString();
 	}
 
 	/**
-	 * —LŒø/–³Œø‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * æœ‰åŠ¹/ç„¡åŠ¹ã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isEnabled
-	 *            —LŒø(true)/–³Œø(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            æœ‰åŠ¹(true)/ç„¡åŠ¹(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsEnabled(String id, Boolean isEnabled) {
 		return new StringBuilder("$(\"#").append(id).append("\").prop(\"disabled\",").append(!isEnabled).append(");")
@@ -514,39 +514,39 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Text‚ğİ’è‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * Textã‚’è¨­å®šã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param text
-	 *            İ’è‚·‚é•¶š—ñ
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¨­å®šã™ã‚‹æ–‡å­—åˆ—
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSetText(String id, String text) {
 		return new StringBuilder("$(\"#").append(id).append("\").text(\"").append(text).append("\");").toString();
 	}
 
 	/**
-	 * Value‚ğİ’è‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * Valueã‚’è¨­å®šã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param value
-	 *            İ’è‚·‚é•¶š—ñ
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¨­å®šã™ã‚‹æ–‡å­—åˆ—
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSetValue(String id, String value) {
 		return new StringBuilder("$(\"#").append(id).append("\").val(\"").append(value).append("\");").toString();
 	}
 
 	/**
-	 * ƒ`ƒFƒbƒN‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isEnabled
-	 *            —LŒø(true)/–³Œø(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            æœ‰åŠ¹(true)/ç„¡åŠ¹(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsChecked(String id, Boolean isEnabled) {
 		return new StringBuilder("$(\"#").append(id).append("\").prop(\"checked\",").append(isEnabled).append(");")
@@ -554,13 +554,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒ‰ƒWƒIƒ{ƒ^ƒ“‚É‘Î‚µ‚ÄValue‚ğİ’è‚µ‚Ä‘I‘ğó‘Ô‚É‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã«å¯¾ã—ã¦Valueã‚’è¨­å®šã—ã¦é¸æŠçŠ¶æ…‹ã«ã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param name
-	 *            ‘ÎÛ‚Ìƒ‰ƒWƒIƒ{ƒ^ƒ“ƒOƒ‹[ƒv‚Ìname•¶š—ñ
+	 *            å¯¾è±¡ã®ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã‚°ãƒ«ãƒ¼ãƒ—ã®nameæ–‡å­—åˆ—
 	 * @param value
-	 *            İ’è‚·‚éValue’l
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¨­å®šã™ã‚‹Valueå€¤
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSetRadioValue(String name, String value) {
 		return new StringBuilder("$(\"input[name=\'").append(name).append("\']\").val([\"").append(value)
@@ -568,17 +568,17 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * SELECT“à‚Ì‘I‘ğ€–Ú‚ğXV‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * SELECTå†…ã®é¸æŠé …ç›®ã‚’æ›´æ–°ã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param key
-	 *            ‘I‘ğ‚³‚ê‚Ä‚¢‚éKey•¶š—ñ
+	 *            é¸æŠã•ã‚Œã¦ã„ã‚‹Keyæ–‡å­—åˆ—
 	 * @param map
-	 *            ‘I‘ğ€–Ú‚ÌMap
+	 *            é¸æŠé …ç›®ã®Map
 	 * @param isNeedNull
-	 *            –¢‘I‘ğó‘Ô‚ª•K—v(true)/–¢‘I‘ğó‘Ô‚Í•s—v(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            æœªé¸æŠçŠ¶æ…‹ãŒå¿…è¦(true)/æœªé¸æŠçŠ¶æ…‹ã¯ä¸è¦(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSelect(String id, String key, LinkedHashMap<String, String> map, Boolean isNeedNull) {
 		StringBuilder str = new StringBuilder();
@@ -597,13 +597,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ‰æ‘œ(Imgƒ^ƒO)‚É‰æ‘œ‚Ìİ’è‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * ç”»åƒ(Imgã‚¿ã‚°)ã«ç”»åƒã®è¨­å®šã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param imgString
-	 *            ‰æ‘œ‚ÌBase64•¶š—ñ
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            ç”»åƒã®Base64æ–‡å­—åˆ—
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSettingImg(String id, String imgString) {
 		return new StringBuilder("$(\"#").append(id).append("\").attr({'src':\"").append(CommonConst.ICON_IMG_HEADER)
@@ -611,23 +611,23 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * JavaScript‚ÅURL•¶š—ñ‚ğ‘g‚İ—§‚Ä‚éƒR[ƒh‚ğ•Ô‚·.
+	 * JavaScriptã§URLæ–‡å­—åˆ—ã‚’çµ„ã¿ç«‹ã¦ã‚‹ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã™.
 	 * 
 	 * @param url
-	 *            url•¶š—ñ
+	 *            urlæ–‡å­—åˆ—
 	 * @param paramMap
-	 *            ˆø”ƒ}ƒbƒv
-	 * @return URL•¶š—ñ‘g‚İ—§‚ÄJavaScriptƒR[ƒh•¶š—ñ ({@code not null})
+	 *            å¼•æ•°ãƒãƒƒãƒ—
+	 * @return URLæ–‡å­—åˆ—çµ„ã¿ç«‹ã¦JavaScriptã‚³ãƒ¼ãƒ‰æ–‡å­—åˆ— ({@code not null})
 	 */
 	public static String getJsUrlBuilder(String url, LinkedHashMap<String, String> paramMap) {
-		// ƒpƒ‰ƒ[ƒ^•¶š—ñ‚ğ¶¬
+		// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ–‡å­—åˆ—ã‚’ç”Ÿæˆ
 		StringBuilder param = new StringBuilder();
 		for (Map.Entry<String, String> item : paramMap.entrySet()) {
 			param.append(param.length() == 0 ? ",\"?\"," : ",\"&\",");
 			param.append(String.format("\"%s\"", item.getKey())).append(",\"=\",");
 			param.append(item.getValue());
 		}
-		// URL ‚ğ¶¬
+		// URL ã‚’ç”Ÿæˆ
 		StringBuilder js = new StringBuilder();
 		js.append("[");
 		js.append(String.format("\"%s\"", url));
@@ -637,16 +637,16 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * JavaScript‚ÅAjaxŒÄ‚Ño‚µ•¶š—ñ‚ğ‘g‚İ—§‚Ä‚éƒR[ƒh‚ğ•Ô‚·.
+	 * JavaScriptã§Ajaxå‘¼ã³å‡ºã—æ–‡å­—åˆ—ã‚’çµ„ã¿ç«‹ã¦ã‚‹ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã™.
 	 * 
 	 * @param url
-	 *            url•¶š—ñ
+	 *            urlæ–‡å­—åˆ—
 	 * @param paramMap
-	 *            ˆø”ƒ}ƒbƒv
-	 * @return AjaxŒÄ‚Ño‚µJavaScriptƒR[ƒh•¶š—ñ ({@code not null})
+	 *            å¼•æ•°ãƒãƒƒãƒ—
+	 * @return Ajaxå‘¼ã³å‡ºã—JavaScriptã‚³ãƒ¼ãƒ‰æ–‡å­—åˆ— ({@code not null})
 	 */
 	public static String getJsAjaxBuilder(String url, LinkedHashMap<String, String> paramMap) {
-		// AjaxŒÄ‚Ño‚µJavaScript‚ğ¶¬
+		// Ajaxå‘¼ã³å‡ºã—JavaScriptã‚’ç”Ÿæˆ
 		String lastKey = "";
 		for (String key : paramMap.keySet()) {
 			lastKey = key;
@@ -669,12 +669,12 @@ public class JavaScriptHolder {
 		}
 		js.append("}");
 		js.append("})");
-		// ¸”s‚Ìˆ—
+		// å¤±æ•—æ™‚ã®å‡¦ç†
 		js.append(".fail(function(data,textStatus,errorThrown){");
 		js.append("if (data.status == 408) {");
-		js.append("alert(\"ƒZƒbƒVƒ‡ƒ“‚ªØ‚ê‚Ü‚µ‚½B\\nÄ“xƒƒOƒCƒ“‚µ‚Ä‰º‚³‚¢B\");");
+		js.append("alert(\"ã‚»ãƒƒã‚·ãƒ§ãƒ³ãŒåˆ‡ã‚Œã¾ã—ãŸã€‚\\nå†åº¦ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ä¸‹ã•ã„ã€‚\");");
 		js.append("}else{");
-		js.append("alert(\"“à•”ƒGƒ‰[(\"+textStatus+\":\"+errorThrown+\")\");");
+		js.append("alert(\"å†…éƒ¨ã‚¨ãƒ©ãƒ¼(\"+textStatus+\":\"+errorThrown+\")\");");
 		js.append("}");
 		js.append("});");
 		js.append("}");
@@ -683,28 +683,28 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Value‚ğİ’è‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * Valueã‚’è¨­å®šã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param fromid
-	 *            æ“¾€–Ú‚ÌID•¶š—ñ
+	 *            å–å¾—é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param toid
-	 *            İ’è€–Ú‚ÌID•¶š—ñ
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¨­å®šé …ç›®ã®IDæ–‡å­—åˆ—
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSetIdMainWindow(String fromid, String toid) {
 		return this.getJsSetIdMainWindow(fromid, toid, null);
 	}
 
 	/**
-	 * Value‚ğİ’è‚·‚éJavaScript‚ğæ“¾‚·‚é(EventFire‘Î‰).
+	 * Valueã‚’è¨­å®šã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹(EventFireå¯¾å¿œ).
 	 * 
 	 * @param fromid
-	 *            İ’è€–Ú‚ÌID•¶š—ñ
+	 *            è¨­å®šé …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param toid
-	 *            İ’è€–Ú‚ÌID•¶š—ñ
+	 *            è¨­å®šé …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param event
-	 *            fire‚·‚éƒCƒxƒ“ƒgi{@code null}‚Ìê‡‚ÍAfire‚µ‚È‚¢)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            fireã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆï¼ˆ{@code null}ã®å ´åˆã¯ã€fireã—ãªã„)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSetIdMainWindow(String fromid, String toid, EventHandlerEnum event) {
 		StringBuilder js = new StringBuilder();
@@ -716,28 +716,28 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Value‚ğİ’è‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * Valueã‚’è¨­å®šã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param value
-	 *            İ’è•¶š—ñ
+	 *            è¨­å®šæ–‡å­—åˆ—
 	 * @param toid
-	 *            İ’è€–Ú‚ÌID•¶š—ñ
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¨­å®šé …ç›®ã®IDæ–‡å­—åˆ—
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSetValueMainWindow(String value, String toid) {
 		return this.getJsSetValueMainWindow(value, toid, null);
 	}
 
 	/**
-	 * Value‚ğİ’è‚·‚éJavaScript‚ğæ“¾‚·‚é(EventFire‘Î‰).
+	 * Valueã‚’è¨­å®šã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹(EventFireå¯¾å¿œ).
 	 * 
 	 * @param value
-	 *            İ’è•¶š—ñ
+	 *            è¨­å®šæ–‡å­—åˆ—
 	 * @param toid
-	 *            İ’è€–Ú‚ÌID•¶š—ñ
+	 *            è¨­å®šé …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param event
-	 *            fire‚·‚éƒCƒxƒ“ƒgi{@code null}‚Ìê‡‚ÍAfire‚µ‚È‚¢)
-	 * @return JavaScript•¶š—ñ({@code not null})
+	 *            fireã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆï¼ˆ{@code null}ã®å ´åˆã¯ã€fireã—ãªã„)
+	 * @return JavaScriptæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getJsSetValueMainWindow(String value, String toid, EventHandlerEnum event) {
 		StringBuilder js = new StringBuilder();
@@ -746,7 +746,7 @@ public class JavaScriptHolder {
 			js.append(".").append(event.getSource()).append("()");
 		}
 		if (event != EventHandlerEnum.onChange) {
-			// •ÏXƒtƒ‰ƒO‚ğİ’è‚·‚éƒCƒxƒ“ƒg‚ğFire
+			// å¤‰æ›´ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã‚’Fire
 			js.append(".not('._noChangeFlg, :disabled')");
 			js.append(".trigger('").append(EventHandlerEnum.onChange.getSource()).append(".changeflg')");
 		}
@@ -754,13 +754,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Šm”Fƒ_ƒCƒAƒƒO‚ğ•\¦‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * ç¢ºèªãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param buttonId
-	 *            ƒ{ƒ^ƒ“ID
+	 *            ãƒœã‚¿ãƒ³ID
 	 * @param message
-	 *            ƒƒbƒZ[ƒW
-	 * @return JavaScript•¶š—ñ({@code not null})
+	 *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+	 * @return JavaScriptæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getJsSetConfirm(String buttonId, String message) {
 		StringBuilder js = new StringBuilder();
@@ -775,11 +775,11 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒ_ƒCƒAƒƒO‚ğ•\¦‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param message
-	 *            ƒƒbƒZ[ƒW
-	 * @return JavaScript•¶š—ñ({@code not null})
+	 *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+	 * @return JavaScriptæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getJsSetAlert(String message) {
 		StringBuilder js = new StringBuilder();
@@ -790,15 +790,15 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒe[ƒuƒ‹—ñ‚Ì•\¦E”ñ•\¦‚ğ•\¦‚·‚éCSS‚ğæ“¾‚·‚é.
+	 * ãƒ†ãƒ¼ãƒ–ãƒ«åˆ—ã®è¡¨ç¤ºãƒ»éè¡¨ç¤ºã‚’è¡¨ç¤ºã™ã‚‹CSSã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param table
-	 *            ‘ÎÛƒe[ƒuƒ‹–¼
+	 *            å¯¾è±¡ãƒ†ãƒ¼ãƒ–ãƒ«å
 	 * @param col
-	 *            —ñ”Ô†
+	 *            åˆ—ç•ªå·
 	 * @param isDisplay
-	 *            •\¦E”ñ•\¦
-	 * @return Css•¶š—ñ({@code not null})
+	 *            è¡¨ç¤ºãƒ»éè¡¨ç¤º
+	 * @return Cssæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getCssSetTableDisplay(String table, String col, Boolean isDisplay) {
 		StringBuilder js = new StringBuilder();
@@ -812,15 +812,15 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒe[ƒuƒ‹—ñ‚Ì•\¦E”ñ•\¦‚ğ•\¦‚·‚éJavaScript‚ğæ“¾‚·‚é.
+	 * ãƒ†ãƒ¼ãƒ–ãƒ«åˆ—ã®è¡¨ç¤ºãƒ»éè¡¨ç¤ºã‚’è¡¨ç¤ºã™ã‚‹JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param table
-	 *            ‘ÎÛƒe[ƒuƒ‹–¼
+	 *            å¯¾è±¡ãƒ†ãƒ¼ãƒ–ãƒ«å
 	 * @param col
-	 *            —ñ”Ô†
+	 *            åˆ—ç•ªå·
 	 * @param isDisplay
-	 *            •\¦E”ñ•\¦
-	 * @return JavaScript•¶š—ñ({@code not null})
+	 *            è¡¨ç¤ºãƒ»éè¡¨ç¤º
+	 * @return JavaScriptæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getJsSetTableDisplay(String table, String col, Boolean isDisplay) {
 		StringBuilder js = new StringBuilder();
@@ -834,11 +834,11 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒ{ƒ^ƒ“‹­’²•\¦CSS‚ğæ“¾‚·‚é.
+	 * ãƒœã‚¿ãƒ³å¼·èª¿è¡¨ç¤ºCSSã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param buttonId
-	 *            ‘ÎÛƒ{ƒ^ƒ“ID
-	 * @return Css•¶š—ñ({@code not null})
+	 *            å¯¾è±¡ãƒœã‚¿ãƒ³ID
+	 * @return Cssæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getCssButtonEmphasis(String buttonId) {
 		StringBuilder js = new StringBuilder();
@@ -850,10 +850,10 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * Form‚Ìinputdataî•ñ‚ğæ“¾‚·‚é.
+	 * Formã®inputdataæƒ…å ±ã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param request
-	 *            ƒŠƒNƒGƒXƒgî•ñ
+	 *            ãƒªã‚¯ã‚¨ã‚¹ãƒˆæƒ…å ±
 	 * @param name
 	 *            name
 	 */
@@ -861,7 +861,7 @@ public class JavaScriptHolder {
 
 		int cnt = 0;
 		String result = "";
-		// ˆê——•\¦•¡”‘I‘ğƒ`ƒFƒbƒN‚ğ‰Šú‰»
+		// ä¸€è¦§è¡¨ç¤ºè¤‡æ•°é¸æŠãƒã‚§ãƒƒã‚¯ã‚’åˆæœŸåŒ–
 		while (!KdcCommonUtils.nullSafeEquals(request.getParameter("inputdata[" + cnt + "][name]"), "")) {
 			if (KdcCommonUtils.nullSafeEquals(
 					KdcCommonUtils.nullToEmpty(request.getParameter("inputdata[" + cnt + "][name]")), name)) {
@@ -875,15 +875,15 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒ|ƒbƒvƒAƒbƒv‰æ–Ê‚ÌŠm”Fƒ{ƒ^ƒ“‰Ÿ‰º‚Ée‰æ–Ê‚Ìƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚·‚éjavaScript‚ğ–ß‚·.
-	 * e‰æ–Ê‚Ìƒ{ƒ^ƒ“‚ª‘¶İ‚µ‚È‚¢ê‡‚Í‚È‚É‚à‚¹‚¸‚É‰æ–Ê‚ğ•Â‚¶‚é
+	 * ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç”»é¢ã®ç¢ºèªãƒœã‚¿ãƒ³æŠ¼ä¸‹æ™‚ã«è¦ªç”»é¢ã®ãƒœã‚¿ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹javaScriptã‚’æˆ»ã™.
+	 * è¦ªç”»é¢ã®ãƒœã‚¿ãƒ³ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ãªã«ã‚‚ã›ãšã«ç”»é¢ã‚’é–‰ã˜ã‚‹
 	 * 
 	 * @param buttonId
-	 *            e‰æ–ÊƒNƒŠƒbƒNƒ{ƒ^ƒ“ID
-	 * @return JavaScript•¶š—ñ({@code not null})
+	 *            è¦ªç”»é¢ã‚¯ãƒªãƒƒã‚¯ãƒœã‚¿ãƒ³ID
+	 * @return JavaScriptæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getJsPopupOkButton(String buttonId) {
-		// JavaScript ¶¬
+		// JavaScript ç”Ÿæˆ
 		StringBuilder js = new StringBuilder();
 		if (StringUtils.isNotEmpty(buttonId)) {
 			js.append("window.opener.$('#" + buttonId + "').click();");
@@ -893,15 +893,15 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ‘ÎÛ‚h‚c‚É‘Î‚µ‚Ä“Á’è‚ÌƒCƒxƒ“ƒg‚ª”­¶‚µ‚½ê‡‚Éƒ{ƒ^ƒ“ƒNƒŠƒbƒN‚ğs‚¤JavaScript‚ğæ“¾.
+	 * å¯¾è±¡ï¼©ï¼¤ã«å¯¾ã—ã¦ç‰¹å®šã®ã‚¤ãƒ™ãƒ³ãƒˆãŒç™ºç”Ÿã—ãŸå ´åˆã«ãƒœã‚¿ãƒ³ã‚¯ãƒªãƒƒã‚¯ã‚’è¡Œã†JavaScriptã‚’å–å¾—.
 	 * 
 	 * @param eventId
-	 *            ƒCƒxƒ“ƒg‘ÎÛ‚ÌID
+	 *            ã‚¤ãƒ™ãƒ³ãƒˆå¯¾è±¡ã®ID
 	 * @param event
-	 *            İ’è‚·‚éƒgƒŠƒK[í—Ş
+	 *            è¨­å®šã™ã‚‹ãƒˆãƒªã‚¬ãƒ¼ç¨®é¡
 	 * @param buttonId
-	 *            ƒNƒŠƒbƒNƒ{ƒ^ƒ“ID
-	 * @return JavaScript•¶š—ñ({@code not null})
+	 *            ã‚¯ãƒªãƒƒã‚¯ãƒœã‚¿ãƒ³ID
+	 * @return JavaScriptæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getJsEventOnClick(String eventId, EventHandlerEnum event, String buttonId) {
 		StringBuilder js = new StringBuilder();
@@ -918,13 +918,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒJƒŒƒ“ƒ_[•\¦/”ñ•\¦‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼è¡¨ç¤º/éè¡¨ç¤ºã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isDisplay
-	 *            •\¦(true)/”ñ•\¦(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¡¨ç¤º(true)/éè¡¨ç¤º(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsCalendarDisplay(String id, Boolean isDisplay) {
 		StringBuilder sb = new StringBuilder();
@@ -940,13 +940,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ”’l€–Ú‚ÌƒXƒsƒi[•\¦/”ñ•\¦‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * æ•°å€¤é …ç›®ã®ã‚¹ãƒ”ãƒŠãƒ¼è¡¨ç¤º/éè¡¨ç¤ºã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isDisplay
-	 *            •\¦(true)/”ñ•\¦(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            è¡¨ç¤º(true)/éè¡¨ç¤º(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsSpinnerDisplay(String id, Boolean isDisplay) {
 		if (isDisplay) {
@@ -957,13 +957,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * readonly‚Ì—LŒø/–³Œø‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * readonlyã®æœ‰åŠ¹/ç„¡åŠ¹ã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isReadonly
-	 *            •ÒW‰Â(true)/•ÒW•s‰Â(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            ç·¨é›†å¯(true)/ç·¨é›†ä¸å¯(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsReadable(String id, Boolean isReadonly) {
 		StringBuilder js = new StringBuilder();
@@ -979,17 +979,17 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * readonly‚Ì—LŒø/–³Œø‚ğs‚¤JavaScript‚ğæ“¾‚·‚é.
+	 * readonlyã®æœ‰åŠ¹/ç„¡åŠ¹ã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * <p>
-	 * “ü—Í•s‰Â‚Ìê‡‚Íƒ‰ƒxƒ‹•—‚Ì•\¦‚ğs‚¤B
+	 * å…¥åŠ›ä¸å¯ã®å ´åˆã¯ãƒ©ãƒ™ãƒ«é¢¨ã®è¡¨ç¤ºã‚’è¡Œã†ã€‚
 	 * </p>
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isReadonly
-	 *            •ÒW‰Â(true)/•ÒW•s‰Â(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            ç·¨é›†å¯(true)/ç·¨é›†ä¸å¯(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsReadableToLabel(String id, Boolean isReadonly) {
 		StringBuilder js = new StringBuilder();
@@ -1005,13 +1005,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * •\¦/”ñ•\¦‚ğ•\¦‚·‚éCSS‚ğæ“¾‚·‚é(—Ìˆæ‚ğŠm•Û).
+	 * è¡¨ç¤º/éè¡¨ç¤ºã‚’è¡¨ç¤ºã™ã‚‹CSSã‚’å–å¾—ã™ã‚‹(é ˜åŸŸã‚’ç¢ºä¿).
 	 * 
 	 * @param id
-	 *            €–Ú–¼
+	 *            é …ç›®å
 	 * @param isVisibility
-	 *            •\¦E”ñ•\¦
-	 * @return CSS•¶š—ñ({@code not null})
+	 *            è¡¨ç¤ºãƒ»éè¡¨ç¤º
+	 * @return CSSæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getCssSetVisibility(String id, Boolean isVisibility) {
 		StringBuilder js = new StringBuilder();
@@ -1021,13 +1021,13 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * —LŒø/–³Œø‚ğs‚¤JavaScript‚ğæ“¾‚·‚é(—Ìˆæ‚ğŠm•Û).
+	 * æœ‰åŠ¹/ç„¡åŠ¹ã‚’è¡Œã†JavaScriptã‚’å–å¾—ã™ã‚‹(é ˜åŸŸã‚’ç¢ºä¿).
 	 * 
 	 * @param id
-	 *            ‘ÎÛ€–Ú‚ÌID•¶š—ñ
+	 *            å¯¾è±¡é …ç›®ã®IDæ–‡å­—åˆ—
 	 * @param isVisibility
-	 *            —LŒø(true)/–³Œø(false)
-	 * @return JavaScript•¶š—ñ ({@code not null})
+	 *            æœ‰åŠ¹(true)/ç„¡åŠ¹(false)
+	 * @return JavaScriptæ–‡å­—åˆ— ({@code not null})
 	 */
 	public String getJsVisibility(String id, Boolean isVisibility) {
 		StringBuilder str = new StringBuilder();
@@ -1043,14 +1043,14 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ‰æ–Ê•\¦‚Éw’è‚Ìƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚·‚éjavaScript‚ğ–ß‚·.
+	 * ç”»é¢è¡¨ç¤ºæ™‚ã«æŒ‡å®šã®ãƒœã‚¿ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹javaScriptã‚’æˆ»ã™.
 	 * 
 	 * @param buttonId
-	 *            ‰æ–ÊƒNƒŠƒbƒNƒ{ƒ^ƒ“ID
-	 * @return JavaScript•¶š—ñ({@code not null})
+	 *            ç”»é¢ã‚¯ãƒªãƒƒã‚¯ãƒœã‚¿ãƒ³ID
+	 * @return JavaScriptæ–‡å­—åˆ—({@code not null})
 	 */
 	public String getJsButtonClick(String buttonId) {
-		// JavaScript ¶¬
+		// JavaScript ç”Ÿæˆ
 		StringBuilder js = new StringBuilder();
 		if (StringUtils.isNotEmpty(buttonId)) {
 			js.append("$('#" + buttonId + "').click();");
@@ -1059,27 +1059,28 @@ public class JavaScriptHolder {
 	}
 
 	/**
-	 * ƒGƒ‰[ƒ`ƒFƒbƒNJavaScript¶¬.
+	 * ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯JavaScriptç”Ÿæˆ.
 	 * 
 	 * @return
 	 */
 	public String getErrorAjax(List<ErrorInfo> errorInfoList) {
-		// JavaScript ¶¬
+		// JavaScript ç”Ÿæˆ
 		StringBuilder js = new StringBuilder();
 
 		for (ComErrorInfoData.ErrorInfo errorInfo : errorInfoList) {
-			// ‰æ–Ê‚ÌF‚ğ•ÏX
+			// ç”»é¢ã®è‰²ã‚’å¤‰æ›´
 			js.append("$('#").append(errorInfo.getChangeColorId())
 					.append("').closest('td').css('background-color', 'orange');");
 		}
 
-		// // Šm”Fˆ—‚ÌJavaScript‚ğİ’è
+		// // ç¢ºèªå‡¦ç†ã®JavaScriptã‚’è¨­å®š
 		// js.append(this.javaScriptHolder.getJsPopupOkButton(buttonId));
 
-		// ƒGƒ‰[î•ñ‚ğíœ
+		// ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’å‰Šé™¤
 		errorInfoList = new ArrayList<ErrorInfo>();
 
 		return js.toString();
 	}
 
 }
+

@@ -45,7 +45,7 @@ import com.kdc.common.entity.db.PlaceMasterEntityWrapper;
 import com.kdc.common.enums.ApiIdEnum;
 
 /**
- * ƒLƒbƒYƒRƒ“ƒgƒ[ƒ‹—pƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX.
+ * ã‚­ãƒƒã‚ºã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ç”¨ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹.
  */
 @Component
 public class KdcCommonUtils {
@@ -66,10 +66,10 @@ public class KdcCommonUtils {
 	public static UserColorSet[] USER_COLOR_LIST;
 
 	/**
-	 * ƒvƒƒpƒeƒBî•ñ‚ğæ“¾.
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æƒ…å ±ã‚’å–å¾—.
 	 * 
 	 * @param key
-	 * @return İ’èƒtƒ@ƒCƒ‹‚ÌƒvƒƒpƒeƒBî•ñ
+	 * @return è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æƒ…å ±
 	 */
 	public static String getProperty(String key) {
 		if (propertyMap.isEmpty()) {
@@ -83,12 +83,12 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * İ’èƒtƒ@ƒCƒ‹‚©‚çƒvƒƒpƒeƒBî•ñ‚ğƒ[ƒh‚·‚é
+	 * è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æƒ…å ±ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
 	 */
 	public static void loadPropertiesFromIni() {
 		try {
 			Properties properties = getPropertyFile();
-			// Map‚ÉŠi”[
+			// Mapã«æ ¼ç´
 			for (Map.Entry<Object, Object> e : properties.entrySet()) {
 				propertyMap.put(e.getKey().toString(), e.getValue().toString());
 			}
@@ -100,10 +100,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * İ’èƒtƒ@ƒCƒ‹‚©‚çƒL[‚ğw’è‚µ‚ÄƒvƒƒpƒeƒBî•ñ‚ğƒ[ƒh‚·‚é
+	 * è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚­ãƒ¼ã‚’æŒ‡å®šã—ã¦ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æƒ…å ±ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
 	 * 
 	 * @param key
-	 * @return ƒvƒƒpƒeƒBî•ñ”z—ñ
+	 * @return ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æƒ…å ±é…åˆ—
 	 */
 	public static String loadPropertiesFromIni(String key) {
 		String value = new String();
@@ -120,14 +120,14 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ğæ“¾‚·‚é
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å–å¾—ã™ã‚‹
 	 * 
-	 * @return ƒvƒƒpƒeƒBî•ñ
+	 * @return ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£æƒ…å ±
 	 * @throws IOException
 	 */
 	public static Properties getPropertyFile() throws IOException {
 		Properties properties = new Properties();
-		// ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğw’è‚·‚é
+		// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã‚’æŒ‡å®šã™ã‚‹
 		String strpass = CommonConst.SYSTEM_MODULE_PATH + CommonConst.SYSTEM_INI_FILE_NAME;
 
 		InputStream istream = new FileInputStream(strpass);
@@ -139,37 +139,37 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * Œ»İ“ú‚ÌTimestamp’l‚ğæ“¾
+	 * ç¾åœ¨æ—¥æ™‚ã®Timestampå€¤ã‚’å–å¾—
 	 * 
-	 * @return Œ»İ“úTimestamp‚Ì•¶š—ñ
+	 * @return ç¾åœ¨æ—¥æ™‚Timestampã®æ–‡å­—åˆ—
 	 */
 	public static Timestamp getNowTimestamp() {
 		return Timestamp.valueOf(LocalDateTime.now().withNano(0));
 	}
 
 	/**
-	 * Œ»İ“ú•¶š—ñ(YYYYMMDDHHMISS)‚ğæ“¾
+	 * ç¾åœ¨æ—¥æ™‚æ–‡å­—åˆ—(YYYYMMDDHHMISS)ã‚’å–å¾—
 	 * 
-	 * @return Œ»İ“úyyyyMMddHHmmss‚Ì•¶š—ñ
+	 * @return ç¾åœ¨æ—¥æ™‚yyyyMMddHHmmssã®æ–‡å­—åˆ—
 	 */
 	public static String getNowDateTimeString() {
 		return LocalDateTime.now().format(DATEFORMAT_DATETIME);
 	}
 
 	/**
-	 * Œ»İ“ú•t•¶š—ñ(YYYYMMDD)‚ğæ“¾
+	 * ç¾åœ¨æ—¥ä»˜æ–‡å­—åˆ—(YYYYMMDD)ã‚’å–å¾—
 	 * 
-	 * @return Œ»İ“úyyyyMMdd‚Ì•¶š—ñ
+	 * @return ç¾åœ¨æ—¥æ™‚yyyyMMddã®æ–‡å­—åˆ—
 	 */
 	public static String getNowDateString() {
 		return LocalDateTime.now().format(DATEFORMAT_DATE);
 	}
 
 	/**
-	 * Timestamp’l‚ğ“ú•¶š—ñ(YYYYMMDDHHMISS)‚É•ÏŠ·
+	 * Timestampå€¤ã‚’æ—¥æ™‚æ–‡å­—åˆ—(YYYYMMDDHHMISS)ã«å¤‰æ›
 	 * 
 	 * @param srcTimestamp
-	 * @return “úyyyyMMddHHmmss‚Ì•¶š—ñ
+	 * @return æ—¥æ™‚yyyyMMddHHmmssã®æ–‡å­—åˆ—
 	 */
 	public static String timestampToDateTimeString(Timestamp srcTimestamp) {
 		if (srcTimestamp == null) {
@@ -179,10 +179,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * Timestamp’l‚ğ“ú•t•¶š—ñ(YYYYMMDD)‚É•ÏŠ·
+	 * Timestampå€¤ã‚’æ—¥ä»˜æ–‡å­—åˆ—(YYYYMMDD)ã«å¤‰æ›
 	 * 
 	 * @param srcTimestamp
-	 * @return “úyyyyMMdd‚Ì•¶š—ñ
+	 * @return æ—¥æ™‚yyyyMMddã®æ–‡å­—åˆ—
 	 */
 	public static String timestampToDateString(Timestamp srcTimestamp) {
 		if (srcTimestamp == null) {
@@ -192,10 +192,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * Time’l‚ğ•ª•¶š—ñ(HHMI)‚É•ÏŠ·
+	 * Timeå€¤ã‚’æ™‚åˆ†æ–‡å­—åˆ—(HHMI)ã«å¤‰æ›
 	 * 
 	 * @param srcTime
-	 * @return ŠÔHHmm‚Ì•¶š—ñ
+	 * @return æ™‚é–“HHmmã®æ–‡å­—åˆ—
 	 */
 	public static String timeToHourMinuteString(Time srcTime) {
 		if (srcTime == null) {
@@ -205,10 +205,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * Time’l‚ğ•\¦—p•ª•¶š—ñ(H:MI)‚É•ÏŠ·
+	 * Timeå€¤ã‚’è¡¨ç¤ºç”¨æ™‚åˆ†æ–‡å­—åˆ—(H:MI)ã«å¤‰æ›
 	 * 
 	 * @param srcTime
-	 * @return ŠÔH:mm‚Ì•¶š—ñ
+	 * @return æ™‚é–“H:mmã®æ–‡å­—åˆ—
 	 */
 	public static String timeToHourMinuteStringForDisp(Time srcTime) {
 		if (srcTime == null) {
@@ -218,10 +218,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * Timestamp’l‚ğ•\¦—p•¶š—ñ(H:MI:SS)‚É•ÏŠ·
+	 * Timestampå€¤ã‚’è¡¨ç¤ºç”¨æ™‚åˆ»æ–‡å­—åˆ—(H:MI:SS)ã«å¤‰æ›
 	 * 
 	 * @param srcTimestamp
-	 * @return ŠÔH:mm:ss‚Ì•¶š—ñ
+	 * @return æ™‚é–“H:mm:ssã®æ–‡å­—åˆ—
 	 */
 	public static String timeToTimeStringForDisp(Timestamp srcTimestamp) {
 		if (srcTimestamp == null) {
@@ -231,10 +231,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * Timestamp’l‚ğƒJƒŒƒ“ƒ_[•\¦—p•¶š—ñ‚É•ÏŠ·
+	 * Timestampå€¤ã‚’ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼è¡¨ç¤ºç”¨æ–‡å­—åˆ—ã«å¤‰æ›
 	 * 
 	 * @param srcTimestamp
-	 * @return “úyyyy.MM.dd E‚Ì•¶š—ñ
+	 * @return æ—¥æ™‚yyyy.MM.dd Eã®æ–‡å­—åˆ—
 	 */
 	public static String timestampToCalendarDateString(Timestamp srcTimestamp) {
 		if (srcTimestamp == null) {
@@ -244,10 +244,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * “ú•¶š—ñ(YYYYMMDDHHMISS)‚ğTimestamp’l‚É•ÏŠ·
+	 * æ—¥æ™‚æ–‡å­—åˆ—(YYYYMMDDHHMISS)ã‚’Timestampå€¤ã«å¤‰æ›
 	 * 
 	 * @param srcString
-	 * @return “úyyyyMMddHHmmss‚ÌTimestamp’l
+	 * @return æ—¥æ™‚yyyyMMddHHmmssã®Timestampå€¤
 	 */
 	public static Timestamp dateTimeStringToTimestamp(String srcString) {
 		if (isEmpty(srcString)) {
@@ -257,16 +257,16 @@ public class KdcCommonUtils {
 			LocalDateTime dateTime = LocalDateTime.parse(srcString, DATEFORMAT_DATETIME);
 			return Timestamp.valueOf(dateTime);
 		} catch (DateTimeParseException e) {
-			// ŠÔ•”•ªw’è–³‚µ‚Ìê‡‚Í00:00:00ˆµ‚¢‚Å•ÏŠ·‰Â
+			// æ™‚é–“éƒ¨åˆ†æŒ‡å®šç„¡ã—ã®å ´åˆã¯00:00:00æ‰±ã„ã§å¤‰æ›å¯
 			return dateStringToTimestamp(srcString);
 		}
 	}
 
 	/**
-	 * “ú•t•¶š—ñ(YYYYMMDD)‚ğTimestamp’l‚É•ÏŠ·
+	 * æ—¥ä»˜æ–‡å­—åˆ—(YYYYMMDD)ã‚’Timestampå€¤ã«å¤‰æ›
 	 * 
 	 * @param srcString
-	 * @return “úyyyyMMdd‚ÌTimestamp’l
+	 * @return æ—¥æ™‚yyyyMMddã®Timestampå€¤
 	 */
 	public static Timestamp dateStringToTimestamp(String srcString) {
 		if (isEmpty(srcString)) {
@@ -281,10 +281,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * •ª•¶š—ñ(HHMI)‚ğTime’l‚É•ÏŠ·
+	 * æ™‚åˆ†æ–‡å­—åˆ—(HHMI)ã‚’Timeå€¤ã«å¤‰æ›
 	 * 
 	 * @param srcString
-	 * @return “úHHmm‚ÌTime’l
+	 * @return æ—¥æ™‚HHmmã®Timeå€¤
 	 */
 	public static Time hourMinuteStringToTime(String srcString) {
 		if (isEmpty(srcString)) {
@@ -299,10 +299,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * •\¦—p•ª•¶š—ñ(HH:MI)‚ğTime’l‚É•ÏŠ·
+	 * è¡¨ç¤ºç”¨æ™‚åˆ†æ–‡å­—åˆ—(HH:MI)ã‚’Timeå€¤ã«å¤‰æ›
 	 * 
 	 * @param srcString
-	 * @return “úH:mm‚ÌTime’l
+	 * @return æ—¥æ™‚H:mmã®Timeå€¤
 	 */
 	public static Time hourMinuteStringForDispToTime(String srcString) {
 		if (isEmpty(srcString)) {
@@ -312,16 +312,16 @@ public class KdcCommonUtils {
 			LocalTime time = LocalTime.parse(srcString, DATEFORMAT_TIME_DISP);
 			return Time.valueOf(time);
 		} catch (DateTimeParseException e) {
-			// ’Êí‚Ì•ª•¶š—ñ‚à•ÏŠ·‰Â
+			// é€šå¸¸ã®æ™‚åˆ†æ–‡å­—åˆ—ã‚‚å¤‰æ›å¯
 			return hourMinuteStringToTime(srcString);
 		}
 	}
 
 	/**
-	 * “ú•¶š—ñ(YYYYMMDDHHMISS)‚ª³‚µ‚¢Œ`®‚©‚Ç‚¤‚©”»’è‚·‚é.
+	 * æ—¥æ™‚æ–‡å­—åˆ—(YYYYMMDDHHMISS)ãŒæ­£ã—ã„å½¢å¼ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹.
 	 * 
 	 * @param srcString
-	 * @return ”»’èŒ‹‰Ê
+	 * @return åˆ¤å®šçµæœ
 	 */
 	public static boolean checkDateTimeString(String srcString) {
 		if (isEmpty(srcString)) {
@@ -336,10 +336,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * “ú•t•¶š—ñ(YYYYMMDD)‚ª³‚µ‚¢Œ`®‚©‚Ç‚¤‚©”»’è‚·‚é.
+	 * æ—¥ä»˜æ–‡å­—åˆ—(YYYYMMDD)ãŒæ­£ã—ã„å½¢å¼ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹.
 	 * 
 	 * @param srcString
-	 * @return ”»’èŒ‹‰Ê
+	 * @return åˆ¤å®šçµæœ
 	 */
 	public static boolean checkDateString(String srcString) {
 		if (isEmpty(srcString)) {
@@ -354,10 +354,10 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * •ª•¶š—ñ(HHMI)‚ª³‚µ‚¢Œ`®‚©‚Ç‚¤‚©”»’è‚·‚é.
+	 * æ™‚åˆ†æ–‡å­—åˆ—(HHMI)ãŒæ­£ã—ã„å½¢å¼ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹.
 	 * 
 	 * @param srcString
-	 * @return ”»’èŒ‹‰Ê
+	 * @return åˆ¤å®šçµæœ
 	 */
 	public static boolean checkHourMinuteString(String srcString) {
 		if (isEmpty(srcString)) {
@@ -372,7 +372,7 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ‚ ‚éTimestamp’l‚©‚çw’è“úŒã‚ÌTimestamp’l‚ğæ“¾
+	 * ã‚ã‚‹Timestampå€¤ã‹ã‚‰æŒ‡å®šæ—¥æ™‚å¾Œã®Timestampå€¤ã‚’å–å¾—
 	 * 
 	 * @param srcTimestamp
 	 * @param year
@@ -381,7 +381,7 @@ public class KdcCommonUtils {
 	 * @param hour
 	 * @param minute
 	 * @param second
-	 * @return Timestamp’l
+	 * @return Timestampå€¤
 	 */
 	public static Timestamp timestampPlusDateTime(Timestamp srcTimestamp, int year, int month, int day, int hour,
 			int minute, int second) {
@@ -397,67 +397,67 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ‚ ‚éTimestamp’l‚©‚çw’è”NŒ“úŒã‚ÌTimestamp’l‚ğæ“¾
+	 * ã‚ã‚‹Timestampå€¤ã‹ã‚‰æŒ‡å®šå¹´æœˆæ—¥å¾Œã®Timestampå€¤ã‚’å–å¾—
 	 * 
 	 * @param srcTimestamp
 	 * @param year
 	 * @param month
 	 * @param day
-	 * @return Timestamp’l
+	 * @return Timestampå€¤
 	 */
 	public static Timestamp timestampPlusDate(Timestamp srcTimestamp, int year, int month, int day) {
 		return timestampPlusDateTime(srcTimestamp, year, month, day, 0, 0, 0);
 	}
 
 	/**
-	 * ‚ ‚éTimestamp’l‚©‚çw’èŠÔŒã‚ÌTimestamp’l‚ğæ“¾
+	 * ã‚ã‚‹Timestampå€¤ã‹ã‚‰æŒ‡å®šæ™‚é–“å¾Œã®Timestampå€¤ã‚’å–å¾—
 	 * 
 	 * @param srcTimestamp
 	 * @param hour
 	 * @param minute
 	 * @param second
-	 * @return Timestamp’l
+	 * @return Timestampå€¤
 	 */
 	public static Timestamp timestampPlusTime(Timestamp srcTimestamp, int hour, int minute, int second) {
 		return timestampPlusDateTime(srcTimestamp, 0, 0, 0, hour, minute, second);
 	}
 
 	/**
-	 * StringŒ^‚Ìƒtƒ‰ƒO€–Ú‚ÌON/OFF‚ğ”»’è
+	 * Stringå‹ã®ãƒ•ãƒ©ã‚°é …ç›®ã®ON/OFFã‚’åˆ¤å®š
 	 * 
 	 * @param flg
-	 * @return ”»’èŒ‹‰Ê
+	 * @return åˆ¤å®šçµæœ
 	 */
 	public static boolean isFlgOn(String flg) {
 		return StringUtils.equals(flg, CommonConst.FLG_ON.toString());
 	}
 
 	/**
-	 * Integerƒtƒ‰ƒO‚ğBoolean’l‚É•ÏŠ·
+	 * Integerãƒ•ãƒ©ã‚°ã‚’Booleanå€¤ã«å¤‰æ›
 	 * 
 	 * @param flg
-	 * @return •ÏŠ·Œ‹‰Ê
+	 * @return å¤‰æ›çµæœ
 	 */
 	public static boolean isFlgOn(Integer flg) {
 		return CommonConst.FLG_ON.equals(flg);
 	}
 
 	/**
-	 * Boolean’l‚ğIntegerƒtƒ‰ƒO‚É•ÏŠ·‚·‚é.
+	 * Booleanå€¤ã‚’Integerãƒ•ãƒ©ã‚°ã«å¤‰æ›ã™ã‚‹.
 	 * 
 	 * @param flg
-	 * @return •ÏŠ·Œ‹‰Ê
+	 * @return å¤‰æ›çµæœ
 	 */
 	public static Integer valueFlg(boolean flg) {
 		return flg ? CommonConst.FLG_ON : CommonConst.FLG_OFF;
 	}
 
 	/**
-	 * Šg’£null”»’èBnullA‹ó•¶š‚É‰Á‚¦‚Ä•¶š—ñ"null"‚àtrue‚Æ”»’è‚·‚é.
+	 * æ‹¡å¼µnullåˆ¤å®šã€‚nullã€ç©ºæ–‡å­—ã«åŠ ãˆã¦æ–‡å­—åˆ—"null"ã‚‚trueã¨åˆ¤å®šã™ã‚‹.
 	 * 
 	 * @param val
-	 *            ”»’è•¶š—ñ
-	 * @return ”»’èŒ‹‰Ê
+	 *            åˆ¤å®šæ–‡å­—åˆ—
+	 * @return åˆ¤å®šçµæœ
 	 */
 	public static boolean isEmpty(String val) {
 		if (StringUtils.isEmpty(val) || StringUtils.equals(val, "null")) {
@@ -467,13 +467,13 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ”äŠr‘ÎÛ•¶š—ñ‚ª“¯ˆê‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éB Null‚Æ‹ó•¶šA‹ó•¶š‚ÆNullANull‚ÆNullA‹ó•¶š‚Æ‹ó•¶š‚Í“¯ˆê‚Æ‚İ‚È‚·.
+	 * æ¯”è¼ƒå¯¾è±¡æ–‡å­—åˆ—ãŒåŒä¸€ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚ Nullã¨ç©ºæ–‡å­—ã€ç©ºæ–‡å­—ã¨Nullã€Nullã¨Nullã€ç©ºæ–‡å­—ã¨ç©ºæ–‡å­—ã¯åŒä¸€ã¨ã¿ãªã™.
 	 * 
 	 * @param equalsFrom
-	 *            ”äŠr•¶š—ñ
+	 *            æ¯”è¼ƒæ–‡å­—åˆ—
 	 * @param equalsTo
-	 *            ”äŠr•¶š—ñ
-	 * @return ”äŠrŒ‹‰Ê
+	 *            æ¯”è¼ƒæ–‡å­—åˆ—
+	 * @return æ¯”è¼ƒçµæœ
 	 */
 	public static boolean nullSafeEquals(String equalsFrom, String equalsTo) {
 		if (isEmpty(equalsFrom) && isEmpty(equalsTo)) {
@@ -483,11 +483,11 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * null‚Ìê‡‚ÉA‹ó’l‚ğ•Ô‚µAnullˆÈŠO‚Ìê‡‚Íˆø”‚ğ•Ô‚·.
+	 * nullã®å ´åˆã«ã€ç©ºå€¤ã‚’è¿”ã—ã€nullä»¥å¤–ã®å ´åˆã¯å¼•æ•°ã‚’è¿”ã™.
 	 * 
 	 * @param val
-	 *            •ÏŠ·‘ÎÛ”’l
-	 * @return •ÏŠ·Œ‹‰Ê
+	 *            å¤‰æ›å¯¾è±¡æ•°å€¤
+	 * @return å¤‰æ›çµæœ
 	 */
 	public static String nullToEmpty(String val) {
 		if (isEmpty(val)) {
@@ -497,11 +497,11 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * null‚Ìê‡‚ÉA0‚ğ•Ô‚µAnullˆÈŠO‚Ìê‡‚Íˆø”‚ğ•Ô‚·.
+	 * nullã®å ´åˆã«ã€0ã‚’è¿”ã—ã€nullä»¥å¤–ã®å ´åˆã¯å¼•æ•°ã‚’è¿”ã™.
 	 * 
 	 * @param val
-	 *            •ÏŠ·‘ÎÛ”’l
-	 * @return •ÏŠ·Œ‹‰Ê
+	 *            å¤‰æ›å¯¾è±¡æ•°å€¤
+	 * @return å¤‰æ›çµæœ
 	 */
 	public static String nullToZero(String val) {
 		if (isEmpty(val)) {
@@ -511,11 +511,11 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * null‚Ü‚½‚Í•ÏŠ·•s”\‚Ìê‡‚Énull‚ğ•Ô‚µA‚»‚êˆÈŠO‚Ìê‡‚ÍInteger‚ğ•Ô‚·
+	 * nullã¾ãŸã¯å¤‰æ›ä¸èƒ½ã®å ´åˆã«nullã‚’è¿”ã—ã€ãã‚Œä»¥å¤–ã®å ´åˆã¯Integerã‚’è¿”ã™
 	 * 
 	 * @param val
-	 *            •ÏŠ·‘ÎÛ”’l
-	 * @return •ÏŠ·Œ‹‰Ê
+	 *            å¤‰æ›å¯¾è±¡æ•°å€¤
+	 * @return å¤‰æ›çµæœ
 	 */
 	public static Integer nullSafeParseInt(String val) {
 		try {
@@ -526,17 +526,17 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * 2’n“_ŠÔ‚Ì‹——£‚ğZo.
+	 * 2åœ°ç‚¹é–“ã®è·é›¢ã‚’ç®—å‡º.
 	 * 
 	 * @param startLat
-	 *            n“_‚ÌˆÜ“x
+	 *            å§‹ç‚¹ã®ç·¯åº¦
 	 * @param startLng
-	 *            n“_‚ÌŒo“x
+	 *            å§‹ç‚¹ã®çµŒåº¦
 	 * @param endLat
-	 *            I“_‚ÌˆÜ“x
+	 *            çµ‚ç‚¹ã®ç·¯åº¦
 	 * @param endLng
-	 *            I“_‚ÌŒo“x
-	 * @return ‹——£imj
+	 *            çµ‚ç‚¹ã®çµŒåº¦
+	 * @return è·é›¢ï¼ˆmï¼‰
 	 */
 	public static String computeDistance(BigDecimal startLat, BigDecimal startLng, BigDecimal endLat,
 			BigDecimal endLng) {
@@ -561,13 +561,13 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * êŠ‚Æ‚Ìd‚È‚è”»’è.
+	 * å ´æ‰€ã¨ã®é‡ãªã‚Šåˆ¤å®š.
 	 * 
-	 * @return ˆÊ’uî•ñ‚ªêŠ‚Ì”ÍˆÍ“à‚É‚ ‚éê‡true
+	 * @return ä½ç½®æƒ…å ±ãŒå ´æ‰€ã®ç¯„å›²å†…ã«ã‚ã‚‹å ´åˆtrue
 	 */
 	public static boolean userPlaceEngaged(BigDecimal locationLat, BigDecimal locationLng,
 			PlaceMasterEntityWrapper place) {
-		// ˆÊ’uî•ñ‚ÌÀ•W‚ÆêŠ‚Ì’†SÀ•W‚Æ‚Ì‹——£‚ª”¼ŒaˆÈ“à‚È‚ç‚ÎAêŠ‚Ì”ÍˆÍ“à
+		// ä½ç½®æƒ…å ±ã®åº§æ¨™ã¨å ´æ‰€ã®ä¸­å¿ƒåº§æ¨™ã¨ã®è·é›¢ãŒåŠå¾„ä»¥å†…ãªã‚‰ã°ã€å ´æ‰€ã®ç¯„å›²å†…
 		int distance = Integer
 				.parseInt(computeDistance(locationLat, locationLng, place.getLatitude(), place.getLongitude()));
 		if (distance <= place.getRadius()) {
@@ -577,7 +577,7 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * V‚½‚Èƒ†[ƒU•\¦FƒZƒbƒg‚ğæ“¾‚·‚é.
+	 * æ–°ãŸãªãƒ¦ãƒ¼ã‚¶è¡¨ç¤ºè‰²ã‚»ãƒƒãƒˆã‚’å–å¾—ã™ã‚‹.
 	 */
 	public static UserColorSet getNewUserColorSet(int userSeq) {
 		if (USER_COLOR_LIST == null) {
@@ -593,7 +593,7 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ƒ}[ƒJ[•\¦F‚Ìint’l‚ğæ“¾‚·‚é
+	 * ãƒãƒ¼ã‚«ãƒ¼è¡¨ç¤ºè‰²ã®intå€¤ã‚’å–å¾—ã™ã‚‹
 	 * 
 	 * @param rgb
 	 * @return hsbvals[0]
@@ -608,38 +608,38 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ƒ†[ƒU‚ÌƒfƒtƒHƒ‹ƒgƒAƒCƒRƒ“‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é.
+	 * ãƒ¦ãƒ¼ã‚¶ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¢ã‚¤ã‚³ãƒ³ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹.
 	 * 
-	 * @return ƒAƒCƒRƒ“ƒŠƒXƒg
+	 * @return ã‚¢ã‚¤ã‚³ãƒ³ãƒªã‚¹ãƒˆ
 	 */
 	public static List<IconDataSet> getUserDefaultIconList() {
 		return getIconList(CommonConst.SYSTEM_MODULE_PATH + CommonConst.USER_ICON_DIR);
 	}
 
 	/**
-	 * êŠƒAƒCƒRƒ“‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é.
+	 * å ´æ‰€ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹.
 	 * 
-	 * @return ƒAƒCƒRƒ“ƒŠƒXƒg
+	 * @return ã‚¢ã‚¤ã‚³ãƒ³ãƒªã‚¹ãƒˆ
 	 */
 	public static List<IconDataSet> getPlaceIconList() {
 		return getIconList(CommonConst.SYSTEM_MODULE_PATH + CommonConst.PLACE_ICON_DIR);
 	}
 
 	/**
-	 * ƒ}[ƒJ[ƒAƒCƒRƒ“‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é.
+	 * ãƒãƒ¼ã‚«ãƒ¼ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹.
 	 * 
-	 * @return ƒAƒCƒRƒ“ƒŠƒXƒg
+	 * @return ã‚¢ã‚¤ã‚³ãƒ³ãƒªã‚¹ãƒˆ
 	 */
 	public static List<IconDataSet> getMarkerIconList() {
 		return getIconList(CommonConst.SYSTEM_MODULE_PATH + CommonConst.MARKER_ICON_DIR);
 	}
 
 	/**
-	 * w’è‚³‚ê‚½ƒAƒCƒRƒ“Ši”[ƒfƒBƒŒƒNƒgƒŠ‚©‚çƒAƒCƒRƒ“‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é.
+	 * æŒ‡å®šã•ã‚ŒãŸã‚¢ã‚¤ã‚³ãƒ³æ ¼ç´ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã‚‰ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹.
 	 * 
 	 * @param iconDir
-	 *            ƒfƒBƒŒƒNƒgƒŠƒpƒX
-	 * @return ƒAƒCƒRƒ“ƒŠƒXƒg
+	 *            ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹
+	 * @return ã‚¢ã‚¤ã‚³ãƒ³ãƒªã‚¹ãƒˆ
 	 */
 	private static List<IconDataSet> getIconList(String iconDir) {
 
@@ -672,11 +672,11 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ‰æ‘œ‚ÌƒoƒCƒgƒXƒgƒŠ[ƒ€ƒf[ƒ^‚ğƒAƒCƒRƒ“•\¦—pƒTƒCƒY‚É®Œ`‚µ‚½‚¤‚¦‚ÅABase64•¶š—ñ‚É•ÏŠ·‚·‚é
+	 * ç”»åƒã®ãƒã‚¤ãƒˆã‚¹ãƒˆãƒªãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿ã‚’ã‚¢ã‚¤ã‚³ãƒ³è¡¨ç¤ºç”¨ã‚µã‚¤ã‚ºã«æ•´å½¢ã—ãŸã†ãˆã§ã€Base64æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
 	 * 
 	 * @param in
-	 *            ‰æ‘œƒoƒCƒgƒXƒgƒŠ[ƒ€
-	 * @return Base64•ÏŠ·Œã‚Ì‰æ‘œƒoƒCƒgƒf[ƒ^
+	 *            ç”»åƒãƒã‚¤ãƒˆã‚¹ãƒˆãƒªãƒ¼ãƒ 
+	 * @return Base64å¤‰æ›å¾Œã®ç”»åƒãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿
 	 */
 	public static String getIconStringBase64(byte[] in) {
 		if (in.length == 0) {
@@ -687,17 +687,17 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ‰æ‘œ‚ÌƒoƒCƒgƒXƒgƒŠ[ƒ€‚ğƒŠƒTƒCƒY‚·‚é
+	 * ç”»åƒã®ãƒã‚¤ãƒˆã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’ãƒªã‚µã‚¤ã‚ºã™ã‚‹
 	 * 
 	 * @param in
-	 *            ‰æ‘œƒoƒCƒgƒf[ƒ^
+	 *            ç”»åƒãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿
 	 * @param width
-	 *            ‰æ‘œƒoƒCƒgƒf[ƒ^
+	 *            ç”»åƒãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿
 	 * @param height
-	 *            ‰æ‘œƒoƒCƒgƒf[ƒ^
+	 *            ç”»åƒãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿
 	 * @param formatName
-	 *            ‰æ‘œƒoƒCƒgƒf[ƒ^
-	 * @return ‰æ‘œƒoƒCƒgƒXƒgƒŠ[ƒ€
+	 *            ç”»åƒãƒã‚¤ãƒˆãƒ‡ãƒ¼ã‚¿
+	 * @return ç”»åƒãƒã‚¤ãƒˆã‚¹ãƒˆãƒªãƒ¼ãƒ 
 	 */
 	public static byte[] scaleImage(byte[] in, int width, int height, String formatName) {
 		try {
@@ -709,7 +709,7 @@ public class KdcCommonUtils {
 					BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g = dst.createGraphics();
 
-			// ”wŒi‚ğ“§‰ßF‚Éİ’è‚µ‚ÄƒCƒ[ƒW‚ğì¬‚·‚é
+			// èƒŒæ™¯ã‚’é€éè‰²ã«è¨­å®šã—ã¦ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ä½œæˆã™ã‚‹
 			g.setComposite(AlphaComposite.getInstance(AlphaComposite.CLEAR, 0.0f));
 			Rectangle2D.Double rect = new Rectangle2D.Double(0, 0, dst.getWidth(), dst.getHeight());
 			g.fill(rect);
@@ -726,22 +726,22 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * ƒ†[ƒU‚ÌƒAƒCƒRƒ“‰æ‘œ‚ğAƒ}ƒbƒvã‚Ìƒ}[ƒJ[‚Æ‚µ‚Ä•\¦‚·‚éƒAƒCƒRƒ“‰æ‘œ‚É‰ÁH‚·‚é.
+	 * ãƒ¦ãƒ¼ã‚¶ã®ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã‚’ã€ãƒãƒƒãƒ—ä¸Šã®ãƒãƒ¼ã‚«ãƒ¼ã¨ã—ã¦è¡¨ç¤ºã™ã‚‹ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã«åŠ å·¥ã™ã‚‹.
 	 * 
 	 * @param userIconFile
-	 *            ƒAƒCƒRƒ“‰æ‘œƒtƒ@ƒCƒ‹
+	 *            ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
 	 * @param markerColorId
-	 *            ƒ}[ƒJ[•\¦F
-	 * @return base64‚ÅƒGƒ“ƒR[ƒh‚³‚ê‚½ƒoƒCƒg”z—ñ
+	 *            ãƒãƒ¼ã‚«ãƒ¼è¡¨ç¤ºè‰²
+	 * @return base64ã§ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã•ã‚ŒãŸãƒã‚¤ãƒˆé…åˆ—
 	 * @throws IOException
 	 */
 	public static String createUserMarkerIconString(byte[] userIconFile, byte[] markerBaseFile) throws IOException {
-		// ƒ†[ƒUƒAƒCƒRƒ“‰æ‘œ
+		// ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒ
 		BufferedImage userIconImg = ImageIO.read(new ByteArrayInputStream(userIconFile));
-		// ƒ†[ƒUƒAƒCƒRƒ“‚ğ•\¦‚·‚éƒ}[ƒJ[ƒAƒCƒRƒ“‰æ‘œ
+		// ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹ãƒãƒ¼ã‚«ãƒ¼ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒ
 		BufferedImage markerImage = ImageIO.read(new ByteArrayInputStream(markerBaseFile));
 
-		// ƒ†[ƒUƒAƒCƒRƒ“‰æ‘œ‚ğ‰~Œ^‚ÉØ‚èæ‚é
+		// ãƒ¦ãƒ¼ã‚¶ã‚¢ã‚¤ã‚³ãƒ³ç”»åƒã‚’å††å‹ã«åˆ‡ã‚Šå–ã‚‹
 		BufferedImage userChipImg = new BufferedImage(userIconImg.getWidth(), userIconImg.getHeight(),
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D gr = userChipImg.createGraphics();
@@ -755,14 +755,14 @@ public class KdcCommonUtils {
 		gr.drawImage(userIconImg, 0, 0, null);
 		gr.dispose();
 
-		// Ø‚èæ‚Á‚½ƒ†[ƒUƒAƒCƒRƒ“‚ğƒ}[ƒJ[ƒAƒCƒRƒ“‚Éd‚Ë‚é
+		// åˆ‡ã‚Šå–ã£ãŸãƒ¦ãƒ¼ã‚¶ã‚¢ã‚¤ã‚³ãƒ³ã‚’ãƒãƒ¼ã‚«ãƒ¼ã‚¢ã‚¤ã‚³ãƒ³ã«é‡ã­ã‚‹
 		Graphics graphics1 = null;
 		graphics1 = markerImage.getGraphics();
 		int x = 0;
 		int y = -3;
 		graphics1.drawImage(userChipImg, x, y, null);
 
-		// ‡¬Œã‚Ì‰æ‘œ‚ğ•Û
+		// åˆæˆå¾Œã®ç”»åƒã‚’ä¿æŒ
 		ByteArrayOutputStream byteImg = new ByteArrayOutputStream();
 		ImageIO.write(markerImage, "png", byteImg);
 
@@ -770,15 +770,15 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * APIŠJnƒƒOo—Í
+	 * APIé–‹å§‹ãƒ­ã‚°å‡ºåŠ›
 	 * 
 	 * @param api
-	 *            API¯•ÊID
+	 *            APIè­˜åˆ¥ID
 	 * @param userInfo
-	 *            ƒ†[ƒUî•ñƒNƒ‰ƒX
+	 *            ãƒ¦ãƒ¼ã‚¶æƒ…å ±ã‚¯ãƒ©ã‚¹
 	 * @param deviceInfo
-	 *            ’[––î•ñƒNƒ‰ƒX
-	 * @return ƒƒO•¶š—ñ
+	 *            ç«¯æœ«æƒ…å ±ã‚¯ãƒ©ã‚¹
+	 * @return ãƒ­ã‚°æ–‡å­—åˆ—
 	 */
 	public static String getApiStartLog(ApiIdEnum api, UserInfoEntity userInfo, DeviceInfoEntity deviceInfo) {
 		StringBuilder logString = new StringBuilder();
@@ -792,19 +792,19 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * APII—¹ƒƒOo—Í
+	 * APIçµ‚äº†ãƒ­ã‚°å‡ºåŠ›
 	 * 
 	 * @param api
-	 *            API¯•ÊID
+	 *            APIè­˜åˆ¥ID
 	 * @param userInfo
-	 *            ƒ†[ƒUî•ñƒNƒ‰ƒX
+	 *            ãƒ¦ãƒ¼ã‚¶æƒ…å ±ã‚¯ãƒ©ã‚¹
 	 * @param deviceInfo
-	 *            ’[––î•ñƒNƒ‰ƒX
+	 *            ç«¯æœ«æƒ…å ±ã‚¯ãƒ©ã‚¹
 	 * @param status
-	 *            HttpƒŒƒXƒ|ƒ“ƒXƒXƒe[ƒ^ƒXƒR[ƒh
+	 *            Httpãƒ¬ã‚¹ãƒãƒ³ã‚¹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚³ãƒ¼ãƒ‰
 	 * @param resultCd
-	 *            ˆ—Œ‹‰ÊƒR[ƒh
-	 * @return ƒƒO•¶š—ñ
+	 *            å‡¦ç†çµæœã‚³ãƒ¼ãƒ‰
+	 * @return ãƒ­ã‚°æ–‡å­—åˆ—
 	 */
 	public static String getApiEndLog(ApiIdEnum api, UserInfoEntity userInfo, DeviceInfoEntity deviceInfo,
 			Integer status, Integer resultCd) {
@@ -823,17 +823,17 @@ public class KdcCommonUtils {
 	}
 
 	/**
-	 * APIƒGƒ‰[ƒƒOo—Í
+	 * APIã‚¨ãƒ©ãƒ¼ãƒ­ã‚°å‡ºåŠ›
 	 * 
 	 * @param api
-	 *            API¯•ÊID
+	 *            APIè­˜åˆ¥ID
 	 * @param userInfo
-	 *            ƒ†[ƒUî•ñƒNƒ‰ƒX
+	 *            ãƒ¦ãƒ¼ã‚¶æƒ…å ±ã‚¯ãƒ©ã‚¹
 	 * @param deviceInfo
-	 *            ’[––î•ñƒNƒ‰ƒX
+	 *            ç«¯æœ«æƒ…å ±ã‚¯ãƒ©ã‚¹
 	 * @param error
-	 *            ƒGƒ‰[ƒR[ƒh
-	 * @return ƒƒO•¶š—ñ
+	 *            ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+	 * @return ãƒ­ã‚°æ–‡å­—åˆ—
 	 */
 	public static String getApiErrorLog(ApiIdEnum api, UserInfoEntity userInfo, DeviceInfoEntity deviceInfo,
 			String error) {

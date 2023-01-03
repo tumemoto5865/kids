@@ -3,23 +3,23 @@ package com.kdc.common.enums;
 import com.kdc.common.util.CommonConst;
 
 /**
- * ‰æ–Êˆê——Enum
+ * ç”»é¢ä¸€è¦§Enum
  */
 public enum WebPageEnum {
-	/** ƒƒOƒCƒ“ */
-	LOGIN("login", "ƒƒOƒCƒ“"),
-	/** ƒƒCƒ“ */
-	MAIN("main", "ƒƒCƒ“"),
-//	/** ‹¤’Êİ’è */
-//	COMMONCONFIG("commonconfig", "‹¤’Êİ’è"),
-	/** ŠÇ—İ’è */
-	AUTHCONFIG("authconfig", "ŠÇ—İ’è"),
-	/** ƒ†[ƒUİ’è */
-	USERCONFIG("userconfig", "ƒ†[ƒUİ’è"),
-	/** êŠŠÇ— */
-	PLACECONFIG("placeconfig", "êŠİ’è"),
-	/** —š—ğ */
-	RECORD("record", "—š—ğ");
+	/** ãƒ­ã‚°ã‚¤ãƒ³ */
+	LOGIN("login", "ãƒ­ã‚°ã‚¤ãƒ³"),
+	/** ãƒ¡ã‚¤ãƒ³ */
+	MAIN("main", "ãƒ¡ã‚¤ãƒ³"),
+//	/** å…±é€šè¨­å®š */
+//	COMMONCONFIG("commonconfig", "å…±é€šè¨­å®š"),
+	/** ç®¡ç†è¨­å®š */
+	AUTHCONFIG("authconfig", "ç®¡ç†è¨­å®š"),
+	/** ãƒ¦ãƒ¼ã‚¶è¨­å®š */
+	USERCONFIG("userconfig", "ãƒ¦ãƒ¼ã‚¶è¨­å®š"),
+	/** å ´æ‰€ç®¡ç† */
+	PLACECONFIG("placeconfig", "å ´æ‰€è¨­å®š"),
+	/** å±¥æ­´ */
+	RECORD("record", "å±¥æ­´");
 
 	final String id;
 	final String name;
@@ -38,7 +38,7 @@ public enum WebPageEnum {
 	}
 
 	public String getPageTitleLabel() {
-		return new StringBuilder().append(CommonConst.KDC_SYSTEM_DISP_NAME).append("@@").append(this.name).append("‰æ–Ê")
+		return new StringBuilder().append(CommonConst.KDC_SYSTEM_DISP_NAME).append("ã€€ã€€").append(this.name).append("ç”»é¢")
 				.toString();
 	}
 

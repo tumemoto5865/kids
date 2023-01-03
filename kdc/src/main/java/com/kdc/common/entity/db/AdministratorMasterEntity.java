@@ -14,7 +14,7 @@ public class AdministratorMasterEntity extends CommonColumnsEntity {
 		return administratorid;
 	}
 	/**
-	 * @param administratorid ƒZƒbƒg‚·‚é administratorid
+	 * @param administratorid ã‚»ãƒƒãƒˆã™ã‚‹ administratorid
 	 */
 	public void setAdministratorid(String administratorid) {
 		this.administratorid = administratorid;
@@ -26,7 +26,7 @@ public class AdministratorMasterEntity extends CommonColumnsEntity {
 		return administratorname;
 	}
 	/**
-	 * @param administratorname ƒZƒbƒg‚·‚é administratorname
+	 * @param administratorname ã‚»ãƒƒãƒˆã™ã‚‹ administratorname
 	 */
 	public void setAdministratorname(String administratorname) {
 		this.administratorname = administratorname;
@@ -38,7 +38,7 @@ public class AdministratorMasterEntity extends CommonColumnsEntity {
 		return password;
 	}
 	/**
-	 * @param password ƒZƒbƒg‚·‚é password
+	 * @param password ã‚»ãƒƒãƒˆã™ã‚‹ password
 	 */
 	public void setPassword(String password) {
 		this.password = password;

@@ -6,14 +6,14 @@ import org.apache.ibatis.annotations.Param;
 import com.kdc.common.entity.db.AdministratorMasterEntity;
 
 /**
- * ƒƒOƒCƒ“‰æ–ÊMapperƒNƒ‰ƒX
+ * ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢Mapperã‚¯ãƒ©ã‚¹
  *
  */
 @Mapper
 public interface WebLoginMapper {
 
 	/**
-	 * ŠÇ—Òƒ}ƒXƒ^î•ñæ“¾
+	 * ç®¡ç†è€…ãƒã‚¹ã‚¿æƒ…å ±å–å¾—
 	 * @param rec
 	 * @return
 	 */

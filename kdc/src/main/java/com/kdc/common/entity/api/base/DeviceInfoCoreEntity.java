@@ -13,7 +13,7 @@ public class DeviceInfoCoreEntity {
 		return userId;
 	}
 	/**
-	 * @param userId ƒZƒbƒg‚·‚é userId
+	 * @param userId ã‚»ãƒƒãƒˆã™ã‚‹ userId
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -25,7 +25,7 @@ public class DeviceInfoCoreEntity {
 		return telephoneNumber;
 	}
 	/**
-	 * @param telephoneNumber ƒZƒbƒg‚·‚é telephoneNumber
+	 * @param telephoneNumber ã‚»ãƒƒãƒˆã™ã‚‹ telephoneNumber
 	 */
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
@@ -37,7 +37,7 @@ public class DeviceInfoCoreEntity {
 		return deviceId;
 	}
 	/**
-	 * @param deviceId ƒZƒbƒg‚·‚é deviceId
+	 * @param deviceId ã‚»ãƒƒãƒˆã™ã‚‹ deviceId
 	 */
 	public void setDeviceId(String deviceId) {
 		this.deviceId = deviceId;

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
 /**
- * ƒGƒ‰[EŒxî•ñFƒf[ƒ^
+ * ã‚¨ãƒ©ãƒ¼ãƒ»è­¦å‘Šæƒ…å ±ï¼šãƒ‡ãƒ¼ã‚¿
  * 
- * @author shimizuh@kksse.co.jp
+ * @author umemoto
  * @since 2016/08/24
  * @version
  *
@@ -15,18 +15,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class ComErrorInfoData {
 
-	// ƒGƒ‰[î•ñƒŠƒXƒg
+	// ã‚¨ãƒ©ãƒ¼æƒ…å ±ãƒªã‚¹ãƒˆ
 	private ArrayList<ErrorInfo> errorInfoList;
 
 	/**
-	 * ƒGƒ‰[î•ñƒNƒ‰ƒX .
+	 * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚¯ãƒ©ã‚¹ .
 	 */
 	public static class ErrorInfo {
 
-		// ˆÊ’u
+		// ä½ç½®
 		private String errorPosition;
 
-		// F•ÏXæƒZƒŒƒNƒ^ID
+		// è‰²å¤‰æ›´å…ˆã‚»ãƒ¬ã‚¯ã‚¿ID
 		private String changeColorId;
 
 		/**
@@ -38,7 +38,7 @@ public class ComErrorInfoData {
 
 		/**
 		 * @param errorPosition
-		 *            ƒZƒbƒg‚·‚é errorPosition
+		 *            ã‚»ãƒƒãƒˆã™ã‚‹ errorPosition
 		 */
 		public void setErrorPosition(String errorPosition) {
 			this.errorPosition = errorPosition;
@@ -53,7 +53,7 @@ public class ComErrorInfoData {
 
 		/**
 		 * @param changeColorId
-		 *            ƒZƒbƒg‚·‚é changeColorId
+		 *            ã‚»ãƒƒãƒˆã™ã‚‹ changeColorId
 		 */
 		public void setChangeColorId(String changeColorId) {
 			this.changeColorId = changeColorId;
@@ -70,7 +70,7 @@ public class ComErrorInfoData {
 
 	/**
 	 * @param errorInfoList
-	 *            ƒZƒbƒg‚·‚é errorInfoList
+	 *            ã‚»ãƒƒãƒˆã™ã‚‹ errorInfoList
 	 */
 	public void setErrorInfoList(ArrayList<ErrorInfo> errorInfoList) {
 		this.errorInfoList = errorInfoList;

@@ -3,57 +3,57 @@ package com.kdc.common.enums;
 import com.kdc.common.util.CommonConst;
 
 /**
- * API����ID Enum
+ * API識別ID Enum
  */
 public enum ApiIdEnum {
-	/** ���O�C�� */
+	/** ログイン */
 	LOGIN(CommonConst.API_ID_LOGIN),
-	/** ���[�U�o�^ */
+	/** ユーザ登録 */
 	REGISTER_USER(CommonConst.API_ID_REGISTER_USER),
-	/** �ʒu��񑗐M */
+	/** 位置情報送信 */
 	SEND_LOCATION(CommonConst.API_ID_SEND_LOCATION),
-	/** ���[�U�ʒu���擾 */
+	/** ユーザ位置情報取得 */
 	GET_LOCATIONS(CommonConst.API_ID_GET_LOCATIONS),
-	/** �ꏊ���擾 */
+	/** 場所情報取得 */
 	GET_PLACES(CommonConst.API_ID_GET_PLACES),
-	/** �O���[�v���擾 */
+	/** グループ情報取得 */
 	GET_GROUPS(CommonConst.API_ID_GET_GROUPS),
-	/** ���[�U�������擾 */
+	/** ユーザ履歴情報取得 */
 	GET_RECORDS(CommonConst.API_ID_GET_RECORDS),
-	/** �ݒ�擾 */
+	/** 設定取得 */
 	GET_CONFIG(CommonConst.API_ID_GET_CONFIG),
-	/** SOS���M */
+	/** SOS発信 */
 	SEND_SOS_ALERT(CommonConst.API_ID_SEND_SOS_ALERT),
-	/** �ꏊ�o�^ */
+	/** 場所登録 */
 	REGISTER_PLACE(CommonConst.API_ID_REGISTER_PLACE),
-	/** �O���[�v�o�^ */
+	/** グループ登録 */
 	REGISTER_GROUP(CommonConst.API_ID_REGISTER_GROUP),
-	/** �ʒm���o�^ */
+	/** 通知情報登録 */
 	REGISTER_NOTIFICATION(CommonConst.API_ID_REGISTER_NOTIFICATION),
-	/** �ʒm���擾 */
+	/** 通知情報取得 */
 	GET_NOTIFICATIONS(CommonConst.API_ID_GET_NOTIFICATIONS),
 	
-	/** ���[�U���ύX */
+	/** ユーザ情報変更 */
 	SETTING_USER(CommonConst.API_ID_SETTING_USER),
-	/** �A�C�R���摜�_�E�����[�h */
+	/** アイコン画像ダウンロード */
 	DL_USERICON(CommonConst.API_ID_DL_USERICON),
-	/** ���҃R�[�h���s */
+	/** 招待コード発行 */
 	GET_INVITATION(CommonConst.API_ID_GET_INVITATION),
-	/** ���҃R�[�h�F�� */
+	/** 招待コード認証 */
 	CHECK_INVITATION(CommonConst.API_ID_CHECK_INVITATION),
-	/** APK�_�E�����[�h */
+	/** APKダウンロード */
 	DL_APK(CommonConst.API_ID_DL_APK),
-	/** �i�Ǘ��җp�@�\�j�S���[�U���擾 */
+	/** （管理者用機能）全ユーザ情報取得 */
 	ADMIN_GET_ALLUSER(CommonConst.API_ID_ADMIN_GET_ALLUSER),
-	/** �i�Ǘ��җp�@�\�j�����[�U���ύX */
+	/** （管理者用機能）他ユーザ情報変更 */
 	ADMIN_SETTING_USER(CommonConst.API_ID_ADMIN_SETTING_USER),
-	/** �i�Ǘ��җp�@�\�j���[�U�폜 */
+	/** （管理者用機能）ユーザ削除 */
 	ADMIN_DELUSER(CommonConst.API_ID_ADMIN_DELUSER),
-	/** �T�[�o�����iAPI�ȊO��Push�ʒm��Ԃ�����ԍ��j */
+	/** サーバ処理（API以外でPush通知を返す特殊番号） */
 	SERVER_PROCESS(CommonConst.API_ID_SERVER_PROCESS),
-	/** ���O�A�E�g */
+	/** ログアウト */
 	LOGOUT(CommonConst.API_ID_LOGOUT),
-	/** ���[�U�`�F�b�N */
+	/** ユーザチェック */
 	CHECK_USER(CommonConst.API_ID_CHECK_USER),;
 
 	final int code;

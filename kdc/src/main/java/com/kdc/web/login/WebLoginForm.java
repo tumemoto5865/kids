@@ -13,7 +13,7 @@ public class WebLoginForm {
 		return loginId;
 	}
 	/**
-	 * @param loginId ƒZƒbƒg‚·‚é loginId
+	 * @param loginId ã‚»ãƒƒãƒˆã™ã‚‹ loginId
 	 */
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
@@ -25,7 +25,7 @@ public class WebLoginForm {
 		return loginPass;
 	}
 	/**
-	 * @param loginPass ƒZƒbƒg‚·‚é loginPass
+	 * @param loginPass ã‚»ãƒƒãƒˆã™ã‚‹ loginPass
 	 */
 	public void setLoginPass(String loginPass) {
 		this.loginPass = loginPass;
@@ -37,7 +37,7 @@ public class WebLoginForm {
 		return loginErrorFlg;
 	}
 	/**
-	 * @param loginErrorFlg ƒZƒbƒg‚·‚é loginErrorFlg
+	 * @param loginErrorFlg ã‚»ãƒƒãƒˆã™ã‚‹ loginErrorFlg
 	 */
 	public void setLoginErrorFlg(boolean loginErrorFlg) {
 		this.loginErrorFlg = loginErrorFlg;

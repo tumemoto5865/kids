@@ -11,7 +11,7 @@ import com.kdc.common.enums.ConfirmMessageEnum;
 import com.kdc.common.util.KdcCommonUtils;
 
 /**
- * Šm”FƒƒbƒZ[ƒW‚ÉŠÖ‚·‚éJavaScript‚ğ•Û‚µAƒ}ƒXƒ^ƒy[ƒW‚É”½‰f‚·‚é
+ * ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«é–¢ã™ã‚‹JavaScriptã‚’ä¿æŒã—ã€ãƒã‚¹ã‚¿ãƒšãƒ¼ã‚¸ã«åæ˜ ã™ã‚‹
  * 
  * @author umemeoto
  * @since 2017/01/11
@@ -31,13 +31,13 @@ public class JavaScriptConfirmHolder {
 	}
 
 	/**
-	 * Šm”FƒƒbƒZ[ƒW“o˜^.
+	 * ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç™»éŒ².
 	 * 
 	 * @param buttonId
-	 *            Šm”FƒƒbƒZ[ƒW‚ğİ’è‚·‚éƒ{ƒ^ƒ“‚ÌID
-     * @param confirmMessage •\¦‚·‚éŠm”FƒƒbƒZ[ƒW‚ÌƒƒbƒZ[ƒWID
+	 *            ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹ãƒœã‚¿ãƒ³ã®ID
+     * @param confirmMessage è¡¨ç¤ºã™ã‚‹ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
 	 * @param callJavaScript
-	 *            ‚n‚jƒ{ƒ^ƒ“‰Ÿ‰ºŒã‚Ì’Ç‰Áˆ—JavaScript/{@code null}‚Ìê‡‚Í’Ç‰Áˆ—‚È‚µ
+	 *            ï¼¯ï¼«ãƒœã‚¿ãƒ³æŠ¼ä¸‹å¾Œã®è¿½åŠ å‡¦ç†JavaScript/{@code null}ã®å ´åˆã¯è¿½åŠ å‡¦ç†ãªã—
 	 */
 	public void addItem(String buttonId, ConfirmMessageEnum confirmMessage, String callJavaScript) {
 		ConfirmItem item = new ConfirmItem();
@@ -49,19 +49,19 @@ public class JavaScriptConfirmHolder {
 	}
 
 	/**
-	 * Šm”FƒƒbƒZ[ƒW—p‚ÌJavaScriptƒ\[ƒX•¶š—ñ‚ğ•Ô‚·.
+	 * ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç”¨ã®JavaScriptã‚½ãƒ¼ã‚¹æ–‡å­—åˆ—ã‚’è¿”ã™.
 	 * 
 	 * @param prettyPrint
-	 *            ‰üs®Œ`(true)/®Œ`‚È‚µ(false)
-	 * @return JavaScriptƒ\[ƒX•¶š—ñ
+	 *            æ”¹è¡Œæ•´å½¢(true)/æ•´å½¢ãªã—(false)
+	 * @return JavaScriptã‚½ãƒ¼ã‚¹æ–‡å­—åˆ—
 	 */
 	public String getJavaScriptSource(Boolean prettyPrint) {
 		StringBuilder js = new StringBuilder();
-		// ŒÄ‚Ño‚µŠÖ”’è‹`
+		// å‘¼ã³å‡ºã—é–¢æ•°å®šç¾©
 		for (ConfirmItem item : this.confirmList) {
 			js.append("function fnc_").append(item.buttonId).append("_Confirm(e){");
 			js.append(prettyPrint ? "\n\t" : "");
-			// Šm”FƒƒbƒZ[ƒW•\¦FğŒ‚È‚µ
+			// ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºï¼šæ¡ä»¶ãªã—
 			js.append("if(!confirmNormal(e,");
 			js.append(item.confirmMessage.getMessageString());
 			js.append(")){return false;}");
@@ -74,7 +74,7 @@ public class JavaScriptConfirmHolder {
 			js.append("}");
 			js.append(prettyPrint ? "\n" : "");
 		}
-		// ƒ{ƒ^ƒ“‚ÖƒCƒxƒ“ƒg“o˜^
+		// ãƒœã‚¿ãƒ³ã¸ã‚¤ãƒ™ãƒ³ãƒˆç™»éŒ²
 		if (this.confirmList.size() != 0) {
 			js.append("$(function(){");
 			js.append(prettyPrint ? "\n\t" : "");
@@ -83,7 +83,7 @@ public class JavaScriptConfirmHolder {
 				js.append(".off(\"click.confirm\")");
 				js.append(".on(\"click.confirm\",function(e){");
 
-				// ŒxƒƒbƒZ[ƒW‚Å‘±sŒã‚ÍƒƒbƒZ[ƒW–³‹
+				// è­¦å‘Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã§ç¶šè¡Œå¾Œã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç„¡è¦–
 				js.append("if($('#ignoreAttentionFlg').val() == '1'){return true;}");
 				js.append("return fnc_").append(item.buttonId).append("_Confirm(e);");
 				js.append("});");
@@ -92,8 +92,9 @@ public class JavaScriptConfirmHolder {
 			js.append("});");
 			js.append(prettyPrint ? "\n" : "");
 		}
-		// JavaScript•Ô‹p
+		// JavaScriptè¿”å´
 		return js.toString();
 	}
 
 }
+
